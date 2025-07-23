@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 import { Container } from "./Container";
 import { motion, AnimatePresence } from "framer-motion";
 import SocialLinks from "./SocialLinks";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -102,11 +103,21 @@ export default function Navbar() {
       <Container className="h-full">
         <div className="flex justify-between items-center h-full">
           <Link href="/">
-            <img
-              src="/assets/images/jonahwambua.svg"
-              alt="Logo"
-              className="h-4 sm:h-4 md:h-5 logo"
-            />
+            <div className="flex justify-start">
+              {" "}
+              {/* This container aligns content left */}
+              <Image
+                src="/assets/images/jonahwambua.svg"
+                alt="Logo"
+                width={500}
+                height={300}
+                className="h-4 sm:h-4 md:h-5 logo object-left"
+                style={{
+                  objectPosition: "left", // Explicitly aligns image content to left
+                  width: "auto", // Maintains aspect ratio
+                }}
+              />
+            </div>
           </Link>
 
           <div className="flex gap-8 items-center">

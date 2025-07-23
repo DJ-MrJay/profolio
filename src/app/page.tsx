@@ -6,11 +6,7 @@ import { motion } from "framer-motion";
 import { BackgroundBeams } from "../components/ui/background-beams";
 import Link from "next/link";
 
-export default function Hero({
-  onWelcomeClick,
-}: {
-  onWelcomeClick: () => void;
-}) {
+export default function HomePage() {
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -58,7 +54,7 @@ export default function Hero({
               transition={{
                 duration: 1,
                 ease: "easeInOut",
-                delay: 0.5, // Delay ensures it runs after h2 animation
+                delay: 0.5,
               }}
             >
               <h4 className="leading-tight">
@@ -69,7 +65,6 @@ export default function Hero({
 
             <Link
               href="/main"
-              onClick={onWelcomeClick}
               className="flex items-center gap-2 pt-4 scroll-smooth"
             >
               Welcome{" "}
