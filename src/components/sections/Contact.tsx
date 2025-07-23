@@ -8,7 +8,6 @@ import { Container } from "../Container";
 import { ContainerNarrow } from "../ContainerNarrow";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Link from "next/link";
 
 type FormValues = {
   fullname: string;

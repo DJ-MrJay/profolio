@@ -40,7 +40,7 @@ export default function ArticlesSection() {
           <div className="scroll-in space-y-4">
             <h2>Feature Articles</h2>
             <p className="text-xl sm:text-2xl">
-              I've authored several tech articles on{" "}
+              I have authored several tech articles on{" "}
               <a
                 href="https://medium.com/@djmrjay"
                 target="_blank"
@@ -49,7 +49,7 @@ export default function ArticlesSection() {
               >
                 Medium
               </a>
-              , covering topics that caught my interest. I'd be delighted to
+              , covering topics that caught my interest. I am delighted to
               share them here:
             </p>
           </div>

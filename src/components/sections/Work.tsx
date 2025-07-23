@@ -163,7 +163,7 @@ const workItems = [
         </a>{" "}
         development, I delivered a visually compelling and functionally robust
         website within an impressive three-day timeframe. The result is a
-        polished online presence that effectively showcases the agency's
+        polished online presence that effectively showcases the agency&apos;s
         services and portfolio, reflecting their commitment to excellence in
         brand marketing.
       </>

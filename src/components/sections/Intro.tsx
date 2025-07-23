@@ -42,7 +42,7 @@ export default function Intro() {
                 transition: { duration: 0.9, ease: "easeOut", delay: 0.3 },
               }}
             >
-              I'm a Kenyan creative designer and full-stack developer crafting
+              I am a Kenyan creative designer and full-stack developer crafting
               elegant, high-performing web experiences since 2015. With a
               passion for design, clean code, captivating aesthetics, and
               continuous learning, I bring ideas to life through thoughtful,
