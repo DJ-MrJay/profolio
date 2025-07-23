@@ -4,13 +4,11 @@
 /* Root variables (light theme) */
 :root {
   --navbar-height: 70px;
-  --font-heading: "Playfair Display", serif;
-  --font-heading-alt: "Abril Fatface", serif;
   --font-primary: "Inter", sans-serif;
   --font-heading: "Walsheim Bold", sans-serif;
 
   --background-color: #fafafa;
-  --background-color-transparent: #fafafafa;
+  --background-color-transparent: rgba(250, 250, 250, 0.9);
   --text-color: #121212;
 
   --shade-100: #efefef;
@@ -20,13 +18,6 @@
   --secondary-color: #ccd0be;
   --grey-color: #c2bfbc;
   --grey-text: #595959;
-}
-
-/* Navbar height for desktop */
-@media (min-width: 768px) {
-  :root {
-    --navbar-height: 90px;
-  }
 }
 
 /* Root variables (dark theme) */
@@ -42,6 +33,13 @@
   --secondary-color: #a67a59;
   --grey-color: #303f50;
   --grey-text: #cfd8e2;
+}
+
+/* Navbar height for desktop */
+@media (min-width: 768px) {
+  :root {
+    --navbar-height: 90px;
+  }
 }
 
 /* Global base styles */
@@ -72,24 +70,21 @@ body {
   color: var(--text-color);
 }
 
+/* Header styles */
 header {
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
 /* Typography desktop first */
-h1 {
-  font-family: var(--font-heading);
-  color: var(--shade-500);  
-}
-
+h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
   font-family: var(--font-heading);
-  color: var(--shade-500);  
+  color: var(--shade-500);
 }
 
 h1 {
@@ -174,6 +169,7 @@ h6 {
   padding: 1rem 2rem;
   font-size: 0.9rem;
   border-radius: 2rem;
+  width: fit-content;
 }
 
 .btn:hover,
@@ -183,4 +179,16 @@ h6 {
   color: var(--background-color);
   background-color: var(--shade-500);
   border-color: var(--shade-500);
+}
+
+/* Button responsive styles */
+@media only screen and (max-width: 767px) {
+  .btn-rounded {
+    padding: 0.5rem 2rem;
+  }
+}
+
+/* Dark mode logo */
+.dark img.logo {
+  filter: invert(1);
 }
