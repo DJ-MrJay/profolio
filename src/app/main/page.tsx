@@ -1,28 +1,41 @@
+"use client";
+
 import Navbar from "../../components/Navbar";
-import ButtonLink from "../../components/ButtonLink";
-import Section from "../../components/Section";
+import Intro from "../../components/sections/Intro";
+import Work from "../../components/sections/Work";
+import Articles from "../../components/sections/Articles";
+import Footer from "@/components/Footer";
+import Contact from "../../components/sections/Contact";
+import { motion } from "framer-motion";
 
-export default function MainPage() {
+export default function Home() {
   return (
-    <main>
-      <Navbar />
+    <>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <Navbar />
+        <main className="mt-20 scroll-smooth">
+          <section id="intro">
+            <Intro />
+          </section>
 
-      <Section id="intro" title="Intro">
-        <p>Here’s where you can highlight some introduction text.</p>
-        <ButtonLink href="/about" label="Read More" />
-      </Section>
+          <section id="work">
+            <Work />
+          </section>
 
-      <Section id="projects" title="Projects">
-        <p>Here’s where you can highlight some of your top projects.</p>
-      </Section>
+          <section id="articles">
+            <Articles />
+          </section>
 
-      <Section id="articles" title="Articles">
-        <p>Coming soon: blog posts, write-ups, and more.</p>
-      </Section>
-
-      <Section id="contact" title="Contact">
-        <p>Contact form goes here.</p>
-      </Section>
-    </main>
+          <section id="contact">
+            <Contact />
+          </section>
+        </main>
+        <Footer />
+      </motion.div>
+    </>
   );
 }
