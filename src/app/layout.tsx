@@ -16,7 +16,7 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  title: "Personal Portfolio - Jonah Wambua",
+  title: "Professional Portfolio | Jonah Wambua",
   description:
     "Responsive professional portfolio website showcasing my projects, skills, and experience. Built with Next.js, Tailwind, and shadcn",
 };
