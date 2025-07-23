@@ -1,5 +1,5 @@
-import { Container } from "@/components/Container";
-import WorkItem from "@/components/WorkItem";
+import { Container } from "../Container";
+import WorkItem from "../WorkItem";
 import { motion } from "framer-motion";
 
 const workItems = [
@@ -207,14 +207,10 @@ export default function Work() {
 
         {workItems.map((item, index) => (
           <div
-            className="md:pt-0 pt-6"
             key={index}
-            style={{
-              borderBottom:
-                index !== workItems.length - 1
-                  ? "1px dotted var(--shade-500)"
-                  : "none",
-            }}
+            className={
+              index === workItems.length - 1 ? "pb-0" : "pb-[10%] md:pb-[5%]"
+            }
           >
             <WorkItem {...item} />
           </div>

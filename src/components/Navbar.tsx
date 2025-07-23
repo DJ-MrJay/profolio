@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { Sun, Moon, Equal, X } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { Container } from "@/components/Container";
+import { Container } from "./Container";
 import { motion, AnimatePresence } from "framer-motion";
 import SocialLinks from "./SocialLinks";
 
@@ -105,9 +105,7 @@ export default function Navbar() {
             <img
               src="/assets/images/jonahwambua.svg"
               alt="Logo"
-              className={`h-4 sm:h-4 md:h-5 ${
-                theme === "dark" ? "filter invert" : ""
-              }`}
+              className="h-4 sm:h-4 md:h-5 logo"
             />
           </Link>
 
@@ -118,8 +116,10 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`text-sm uppercase tracking-wide transition-colors ${
-                    active === link.href ? "text-primary font-medium" : ""
+                  className={`text-sm uppercase tracking-wide transition-colors hover:text-[var(--shade-500)] ${
+                    active === link.href
+                      ? "text-[var(--shade-500)] font-medium"
+                      : ""
                   }`}
                 >
                   {link.label}
@@ -129,7 +129,11 @@ export default function Navbar() {
 
             <div className="flex items-center gap-2">
               {/* Theme Toggle */}
-              <button onClick={toggleTheme} aria-label="Toggle Theme">
+              <button
+                onClick={toggleTheme}
+                aria-label="Toggle Theme"
+                className="hover:text-[var(--shade-500)] cursor-pointer"
+              >
                 {theme === "dark" ? (
                   <Sun size={isMobile ? 28 : 24} strokeWidth={1.5} />
                 ) : (
@@ -140,7 +144,7 @@ export default function Navbar() {
               {/* Mobile Menu Toggle */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden"
+                className="md:hidden hover:text-[var(--shade-500)] cursor-pointer"
                 aria-label="Toggle menu"
                 aria-expanded={isOpen}
                 aria-controls="mobile-menu"
@@ -178,8 +182,10 @@ export default function Navbar() {
                 variants={itemVariants}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`text-xl tracking-wide uppercase ${
-                  active === link.href ? "text-primary font-medium" : ""
+                className={`text-xl tracking-wide uppercase hover:text-[var(--shade-500)] ${
+                  active === link.href
+                    ? "text-[var(--shade-500)] font-medium"
+                    : ""
                 }`}
               >
                 {link.label}

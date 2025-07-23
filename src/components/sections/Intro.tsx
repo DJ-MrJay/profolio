@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ContainerNarrow } from "@/components/ContainerNarrow";
-import { cn } from "@/lib/utils";
+import { ContainerNarrow } from "../ContainerNarrow";
+import { cn } from "../../lib/utils";
 import { motion } from "framer-motion";
 
 export default function Intro() {

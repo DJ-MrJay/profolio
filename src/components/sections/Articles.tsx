@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Container } from "@/components/Container";
+import { Container } from "../Container";
 
 const articles = [
   {

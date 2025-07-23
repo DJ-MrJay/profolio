@@ -1,5 +1,5 @@
-import { Container } from "@/components/Container";
-import SocialLinks from "@/components/SocialLinks";
+import { Container } from "./Container";
+import SocialLinks from "./SocialLinks";
 
 const Footer = () => {
   const year = new Date().getFullYear();

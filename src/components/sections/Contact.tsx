@@ -1,48 +1,59 @@
 "use client";
 
-import { Container } from "@/components/Container";
+import { useForm } from "react-hook-form";
+import { Input } from "../ui/input";
+import { Textarea } from "../ui/textarea";
+import { Button } from "../ui/button";
+import { Container } from "../Container";
+import { ContainerNarrow } from "../ContainerNarrow";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Link from "next/link";
+
+type FormValues = {
+  fullname: string;
+  email: string;
+  message: string;
+};
 
 export default function ContactSection() {
-  const [errors, setErrors] = useState({ name: "", email: "", message: "" });
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>();
 
-  const validateForm = (e: React.FormEvent<HTMLFormElement>) => {
-    const form = e.currentTarget;
-    const name = form.fullname.value.trim();
-    const email = form.email.value.trim();
-    const message = form.message.value.trim();
-    let hasError = false;
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-    const newErrors = { name: "", email: "", message: "" };
+  const onSubmit = async (data: FormValues) => {
+    try {
+      const res = await fetch("https://formcarry.com/s/MTj757WTopu", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    if (!name) {
-      newErrors.name = "Name is required.";
-      hasError = true;
-    }
-    if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = "Please enter a valid email address.";
-      hasError = true;
-    }
-    if (!message) {
-      newErrors.message = "Message is required.";
-      hasError = true;
-    }
-
-    setErrors(newErrors);
-
-    if (hasError) {
-      e.preventDefault();
+      if (res.ok) {
+        setStatus("success");
+        reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
     }
   };
 
-  const capitalizeEachWord = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const words = e.target.value
+  const capitalizeEachWord = (value: string) => {
+    return value
       .split(" ")
-      .map(
-        (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-      );
-    e.target.value = words.join(" ");
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
   };
 
   return (
@@ -75,53 +86,77 @@ export default function ContactSection() {
               I will promptly get in touch.
             </motion.p>
           </div>
-
-          <div className="form-container px-0 md:px-12 lg:px-24">
-            <form
-              action="https://formspree.io/f/xrgjwepv"
-              method="POST"
-              name="form"
-              onSubmit={validateForm}
-              className="flex flex-col gap-8 text-center"
-            >
-              <div className="flex flex-col md:flex-row gap-4">
-                <input
-                  type="text"
-                  id="fname"
-                  name="fullname"
-                  maxLength={30}
-                  placeholder="Your name?"
-                  onInput={capitalizeEachWord}
-                  className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)]"
-                />
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Your email address?"
-                  className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)]"
-                />
-              </div>
-
-              <textarea
-                id="msg"
-                name="message"
-                maxLength={500}
-                placeholder="Write your message here"
-                className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)]"
-              ></textarea>
-
-              <input type="submit" value="Send Message" className="btn" />
-            </form>
-
-            <div className="error text-red-600 mt-4 text-sm text-center">
-              {errors.name && <div id="nameError">{errors.name}</div>}
-              {errors.email && <div id="emailError">{errors.email}</div>}
-              {errors.message && <div id="messageError">{errors.message}</div>}
-            </div>
-          </div>
         </div>
       </Container>
+
+      <ContainerNarrow>
+        <div className="form-container pt-[10%] md:pt-[5%]">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-8 text-center"
+          >
+            <div className="flex flex-col md:flex-row gap-4">
+              <Input
+                type="text"
+                placeholder="Your name?"
+                className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)] placeholder:text-[18px]"
+                {...register("fullname", {
+                  required: "Name is required.",
+                  maxLength: 30,
+                  onChange: (e) => {
+                    const formatted = capitalizeEachWord(e.target.value);
+                    setValue("fullname", formatted);
+                  },
+                })}
+              />
+              <Input
+                type="email"
+                placeholder="Your email address?"
+                className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)] placeholder:text-[18px]"
+                {...register("email", {
+                  required: "Email is required.",
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Please enter a valid email address.",
+                  },
+                })}
+              />
+            </div>
+
+            <Textarea
+              placeholder="Type your message"
+              className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)] placeholder:text-[18px]"
+              {...register("message", {
+                required: "Message is required.",
+                maxLength: 500,
+              })}
+            />
+
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn-rounded mx-auto"
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </Button>
+          </form>
+        </div>
+
+        <div className="mt-4 text-sm text-center">
+          {errors.fullname && <div>{errors.fullname.message}</div>}
+          {errors.email && <div>{errors.email.message}</div>}
+          {errors.message && <div>{errors.message.message}</div>}
+
+          {status === "success" && (
+            <div className="mt-4">Thank you. Your message has been sent.</div>
+          )}
+          {status === "error" && (
+            <div className="mt-4">
+              Something went wrong. Please try again later.
+            </div>
+          )}
+        </div>
+      </ContainerNarrow>
     </section>
   );
 }
