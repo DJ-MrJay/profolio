@@ -1,5 +1,3 @@
-import Link from "next/link";
-import { FaLinkedin, FaGithub, FaTwitter, FaMediumM } from "react-icons/fa";
 import { Container } from "@/components/Container";
 import SocialLinks from "@/components/SocialLinks";
 
@@ -17,7 +15,7 @@ const Footer = () => {
           <div className="text-sm">
             <p>
               ©2015 - {year}. Developed with{" "}
-              <span style={{ color: "red" }}>♥</span> by yours truly!
+              <span style={{ color: "magenta" }}>♥</span> by yours truly!
             </p>
           </div>
 
