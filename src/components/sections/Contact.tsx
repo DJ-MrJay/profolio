@@ -75,7 +75,7 @@ export default function ContactSection() {
             <motion.p
               className="text-xl sm:text-2xl"
               initial={{ clipPath: "inset(0 100% 0 0)" }}
-              animate={{ clipPath: "inset(0 0% 0 0)" }}
+              whileInView={{ clipPath: "inset(0 0% 0 0)" }}
               transition={{
                 duration: 1,
                 ease: "easeInOut",

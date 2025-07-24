@@ -41,7 +41,18 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-12 items-center">
               {/* Column 1 with the text */}
               <div className="space-y-4">
-                <h2>My Coding Journey</h2>
+                <motion.h2
+                  initial={{ clipPath: "inset(0 100% 0 0)" }}
+                  whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+                  transition={{
+                    duration: 1,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
+                >
+                  My Coding Journey
+                </motion.h2>
+
                 <p className="text-xl">
                   My journey into the world of programming began in 2008 during
                   my second year at university. My first project, a Patient
