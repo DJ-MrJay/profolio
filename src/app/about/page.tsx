@@ -6,24 +6,25 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Footer from "@/components/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import Link from "next/link";
-import { Card } from "@/components/ui/card";
+import { Card } from "../../components/ui/card";
 import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Container } from "@/components/Container";
-import { ContainerNarrow } from "@/components/ContainerNarrow";
-import { cn } from "@/lib/utils";
+import { Container } from "../../components/Container";
+import { ContainerNarrow } from "../../components/ContainerNarrow";
+import { cn } from "../../lib/utils";
 
 export default function AboutPage() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
-        // style={{ paddingTop: "var(--navbar-height)" }}
+        style={{ paddingTop: "var(--navbar-height)" }}
       >
         <section className="relative overflow-hidden py-[10%] md:py-[5%] mx-auto">
           {/* Dot Background Layer */}

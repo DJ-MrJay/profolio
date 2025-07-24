@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar";
 import Intro from "../../components/sections/Intro";
 import Work from "../../components/sections/Work";
 import Articles from "../../components/sections/Articles";
-import Footer from "@/components/Footer";
+import Footer from "../../components/Footer";
 import Contact from "../../components/sections/Contact";
 import { motion } from "framer-motion";
 
