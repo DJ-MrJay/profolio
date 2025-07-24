@@ -39,7 +39,16 @@ export default function ArticlesSection() {
         <div className="space-y-4">
           <div className="scroll-in space-y-4">
             <h2>Feature Articles</h2>
-            <p className="text-xl sm:text-2xl">
+            <motion.p
+              className="text-xl sm:text-2xl"
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              animate={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{
+                duration: 1,
+                ease: "easeInOut",
+                delay: 0.5,
+              }}
+            >
               I have authored several tech articles on{" "}
               <a
                 href="https://medium.com/@djmrjay"
@@ -49,9 +58,9 @@ export default function ArticlesSection() {
               >
                 Medium
               </a>
-              , covering topics that caught my interest. I am delighted to
-              share them here:
-            </p>
+              , covering topics that caught my interest. I am delighted to share
+              them here:
+            </motion.p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">

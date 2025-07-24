@@ -74,10 +74,13 @@ export default function ContactSection() {
             </motion.h2>
             <motion.p
               className="text-xl sm:text-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.8 }}
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              animate={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{
+                duration: 1,
+                ease: "easeInOut",
+                delay: 0.5,
+              }}
             >
               If you have a website or an application you are interested in
               developing, a brand that you need designed, or a project that
