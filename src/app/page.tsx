@@ -21,7 +21,7 @@ export default function HomePage() {
 
       {/* Background Image Layer */}
       <div
-        id="hero"
+        id="home"
         className="absolute inset-0 pointer-events-none hidden lg:block bg-[url('/assets/images/mugshot.png')] bg-no-repeat bg-right-bottom bg-contain dark:filter dark:grayscale z-10"
       />
 
