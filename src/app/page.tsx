@@ -67,7 +67,7 @@ export default function HomePage() {
               href="/main"
               className="flex items-center gap-2 pt-4 scroll-smooth"
             >
-              Welcome{" "}
+              Dive Right In{" "}
               <motion.div
                 animate={{ x: [0, 5, 0] }}
                 transition={{
