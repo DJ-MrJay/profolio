@@ -44,7 +44,7 @@ export default function WorkItem({
           alt={title}
           width={1200}
           height={800}
-          className="w-full h-auto rounded-xl object-cover object-top transition duration-1000 filter brightness-100 grayscale-0 md:brightness-[45%] md:grayscale md:hover:brightness-100 md:hover:grayscale-0 cursor-pointer"
+          className="w-full h-auto rounded-xl object-cover object-top transition duration-1000 filter brightness-100 grayscale-0 md:brightness-[75%] md:grayscale md:hover:brightness-100 md:hover:grayscale-0 cursor-pointer"
         />
       </div>
 
