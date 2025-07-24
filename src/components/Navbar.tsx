@@ -8,6 +8,8 @@ import { Container } from "./Container";
 import { motion, AnimatePresence } from "framer-motion";
 import SocialLinks from "./SocialLinks";
 import Image from "next/image";
+import { easeInOut } from "framer-motion";
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +66,7 @@ export default function Navbar() {
       y: 0,
       transition: {
         duration: 0.4,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: easeInOut,
         staggerChildren: 0.1,
       },
     },
@@ -82,7 +84,7 @@ export default function Navbar() {
       y: 0,
       transition: {
         duration: 0.4,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: easeInOut,
       },
     },
   };
