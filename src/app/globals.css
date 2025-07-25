@@ -192,3 +192,35 @@ h6 {
 .dark img.logo {
   filter: invert(1);
 }
+
+/* Logo scroll animation */
+@keyframes scroller {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scroller2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.scroller {
+  animation: scroller 30s linear infinite;
+}
+
+.scroller2 {
+  animation: scroller2 30s linear infinite;
+}
+
+.scroller-container:hover .scroller,
+.scroller-container:hover .scroller2 {
+  animation-play-state: paused;
+}

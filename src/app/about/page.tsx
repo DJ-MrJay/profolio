@@ -15,6 +15,36 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Container } from "../../components/Container";
 import { ContainerNarrow } from "../../components/ContainerNarrow";
 import { cn } from "../../lib/utils";
+import Image from "next/image";
+import { Tooltip } from "react-tooltip";
+
+const LOGOS = [
+  { src: "/assets/brand-logos/Nextjs-logo-light.png", alt: "Next.js" },
+  { src: "/assets/brand-logos/JavaScript-logo-light.png", alt: "JavaScript" },
+  { src: "/assets/brand-logos/Typescript-logo-light.png", alt: "TypeScript" },
+  {
+    src: "/assets/brand-logos/Ruby-On-Rails-logo-light.png",
+    alt: "Ruby on Rails",
+  },
+  { src: "/assets/brand-logos/HTML5-logo-light.png", alt: "HTML5" },
+  { src: "/assets/brand-logos/CSS3-logo-light.png", alt: "CSS3" },
+  { src: "/assets/brand-logos/Redux-logo-light.png", alt: "Redux" },
+  { src: "/assets/brand-logos/C++-logo-light.png", alt: "C++" },
+  { src: "/assets/brand-logos/React-icon-light.png", alt: "React" },
+  { src: "/assets/brand-logos/PHP-logo-light.png", alt: "PHP" },
+  { src: "/assets/brand-logos/Ruby-logo-light.png", alt: "Ruby" },
+  { src: "/assets/brand-logos/Webpack-logo-light.png", alt: "Webpack" },
+  {
+    src: "/assets/brand-logos/Tailwind-CSS-logo-light.png",
+    alt: "Tailwind CSS",
+  },
+  { src: "/assets/brand-logos/Bootstrap-logo-light.png", alt: "Bootstrap" },
+  { src: "/assets/brand-logos/Expo-logo-light.png", alt: "Expo" },
+  { src: "/assets/brand-logos/Laravel-logo-light.png", alt: "Laravel" },
+  { src: "/assets/brand-logos/MySQL-logo-light.png", alt: "MySQL" },
+  { src: "/assets/brand-logos/Postgresql-logo-light.png", alt: "PostgreSQL" },
+  { src: "/assets/brand-logos/Oracle-logo-light.png", alt: "Oracle" },
+];
 
 export default function AboutPage() {
   return (
@@ -147,8 +177,9 @@ export default function AboutPage() {
                       <ul className="list-disc list-outside">
                         Full Stack Web Development
                         <li className="ml-5">
-                          Develop responsive, visually engaging websites and apps with a
-                          strong emphasis on usability and performance.
+                          Develop responsive, visually engaging websites and
+                          apps with a strong emphasis on usability and
+                          performance.
                         </li>
                         <li className="ml-5">
                           Expertise in HTML, CSS, JavaScript, and most modern
@@ -341,149 +372,54 @@ export default function AboutPage() {
                 <AccordionItem value="experience">
                   <AccordionTrigger>Tech Stack</AccordionTrigger>
                   <AccordionContent>
-                    <div className="w-full inline-flex flex-nowrap">
-                      <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:grayscale hover:[&_img]:grayscale-0 [&_img]:max-w-[90px] [&_img]:max-h-[35px] [&_img]:h-auto [&_img]:w-auto">
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Bootstrap_logo.svg"
-                            alt="Bootstrap"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/C++_Logo.svg"
-                            alt="C++"
-                          />
-                        </li>
+                    <div className="relative flex overflow-x-hidden scroller-container">
+                      <div className="py-6 scroller whitespace-nowrap">
+                        <ul className="flex items-center [&_li]:mx-4 [&_img]:max-w-[90px] [&_img]:max-h-[35px] [&_img]:h-auto [&_img]:w-auto">
+                          {/* First set of logos */}
+                          {LOGOS.map((logo, index) => (
+                            <li key={`first-${index}`}>
+                              <a
+                                data-tooltip-id="logo-tooltip"
+                                data-tooltip-content={logo.alt}
+                              >
+                                <Image
+                                  src={logo.src}
+                                  alt={logo.alt}
+                                  width={100}
+                                  height={100}
+                                />
+                              </a>
+                            </li>
+                          ))}
+                          <Tooltip id="logo-tooltip" />
+                        </ul>
+                      </div>
 
-                        <li>
-                          <img
-                            src="./assets/brand-logos/CSS3_logo.svg"
-                            alt="CSS3"
-                          />
-                        </li>
-
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Expo-logo-wordmark.svg"
-                            alt="Expo"
-                          />
-                        </li>
-
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Git-logo.svg"
-                            alt="Git"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/GitHub_Logo.svg"
-                            alt="GitHub"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/HTML5_logo.svg"
-                            alt="HTML5"
-                          />
-                        </li>
-
-                        <li>
-                          <img
-                            src="./assets/brand-logos/JavaScript_logo.svg"
-                            alt="JavaScript"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Laravel.svg"
-                            alt="Laravel"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/MySQL_logo.svg"
-                            alt="MySQL"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Nextjs-logo.svg"
-                            alt="Next.js"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Npm-logo.svg"
-                            alt="NPM"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Oracle_logo.svg"
-                            alt="Oracle"
-                          />
-                        </li>
-
-                        <li>
-                          <img
-                            src="./assets/brand-logos/PHP-logo.svg"
-                            alt="PHP"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Postgresql_logo.svg"
-                            alt="PostgreSQL"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/React-icon.svg"
-                            alt="React"
-                          />
-                        </li>
-
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Redux_Logo.png"
-                            alt="Redux"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Ruby_logo.svg"
-                            alt="Ruby"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Ruby_On_Rails_Logo.svg"
-                            alt="Ruby on Rails"
-                          />
-                        </li>
-
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Tailwind_CSS_logo.svg"
-                            alt="Tailwind CSS"
-                          />
-                        </li>
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Typescript_logo.svg"
-                            alt="TypeScript"
-                          />
-                        </li>
-
-                        <li>
-                          <img
-                            src="./assets/brand-logos/Webpack.svg"
-                            alt="Webpack"
-                          />
-                        </li>
-                      </ul>
+                      {/* Duplicate for seamless looping */}
+                      <div
+                        className="absolute top-0 py-6 scroller2 whitespace-nowrap"
+                        aria-hidden="true"
+                      >
+                        <ul className="flex items-center [&_li]:mx-4 [&_img]:max-w-[90px] [&_img]:max-h-[35px] [&_img]:h-auto [&_img]:w-auto">
+                          {/* Second set of logos (same as first) */}
+                          {LOGOS.map((logo, index) => (
+                            <li key={`first-${index}`}>
+                              <a
+                                data-tooltip-id="logo-tooltip"
+                                data-tooltip-content={logo.alt}
+                              >
+                                <Image
+                                  src={logo.src}
+                                  alt={logo.alt}
+                                  width={100}
+                                  height={100}
+                                />
+                              </a>
+                            </li>
+                          ))}
+                          <Tooltip id="logo-tooltip" />
+                        </ul>
+                      </div>
                     </div>
                   </AccordionContent>
                 </AccordionItem>
@@ -493,8 +429,10 @@ export default function AboutPage() {
             <Container>
               <div className="flex flex-col items-center gap-12 w-full">
                 <Link
-                  href="/about"
+                  href="https://docs.google.com/document/d/15XFe3O-jGuixgCD0M3unRk_taDqisG_onwW5VivDn7w/edit?usp=sharing"
                   className="btn-rounded mt-2 inline-flex items-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Request Résumé
                 </Link>
