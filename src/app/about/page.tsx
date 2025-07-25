@@ -145,13 +145,13 @@ export default function AboutPage() {
                         | Nairobi, Kenya
                       </p>
                       <ul className="list-disc list-outside">
-                        Web Development
+                        Full Stack Web Development
                         <li className="ml-5">
-                          Develop responsive, visually engaging websites with a
+                          Develop responsive, visually engaging websites and apps with a
                           strong emphasis on usability and performance.
                         </li>
                         <li className="ml-5">
-                          Expertise in HTML, CSS, JavaScript, and modern
+                          Expertise in HTML, CSS, JavaScript, and most modern
                           frameworks (see technical skills below).
                         </li>
                         <li className="ml-5">
@@ -340,7 +340,152 @@ export default function AboutPage() {
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="experience">
                   <AccordionTrigger>Tech Stack</AccordionTrigger>
-                  <AccordionContent></AccordionContent>
+                  <AccordionContent>
+                    <div className="w-full inline-flex flex-nowrap">
+                      <ul className="flex items-center justify-center md:justify-start [&_li]:mx-4 [&_img]:grayscale hover:[&_img]:grayscale-0 [&_img]:max-w-[90px] [&_img]:max-h-[35px] [&_img]:h-auto [&_img]:w-auto">
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Bootstrap_logo.svg"
+                            alt="Bootstrap"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/C++_Logo.svg"
+                            alt="C++"
+                          />
+                        </li>
+
+                        <li>
+                          <img
+                            src="./assets/brand-logos/CSS3_logo.svg"
+                            alt="CSS3"
+                          />
+                        </li>
+
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Expo-logo-wordmark.svg"
+                            alt="Expo"
+                          />
+                        </li>
+
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Git-logo.svg"
+                            alt="Git"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/GitHub_Logo.svg"
+                            alt="GitHub"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/HTML5_logo.svg"
+                            alt="HTML5"
+                          />
+                        </li>
+
+                        <li>
+                          <img
+                            src="./assets/brand-logos/JavaScript_logo.svg"
+                            alt="JavaScript"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Laravel.svg"
+                            alt="Laravel"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/MySQL_logo.svg"
+                            alt="MySQL"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Nextjs-logo.svg"
+                            alt="Next.js"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Npm-logo.svg"
+                            alt="NPM"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Oracle_logo.svg"
+                            alt="Oracle"
+                          />
+                        </li>
+
+                        <li>
+                          <img
+                            src="./assets/brand-logos/PHP-logo.svg"
+                            alt="PHP"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Postgresql_logo.svg"
+                            alt="PostgreSQL"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/React-icon.svg"
+                            alt="React"
+                          />
+                        </li>
+
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Redux_Logo.png"
+                            alt="Redux"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Ruby_logo.svg"
+                            alt="Ruby"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Ruby_On_Rails_Logo.svg"
+                            alt="Ruby on Rails"
+                          />
+                        </li>
+
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Tailwind_CSS_logo.svg"
+                            alt="Tailwind CSS"
+                          />
+                        </li>
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Typescript_logo.svg"
+                            alt="TypeScript"
+                          />
+                        </li>
+
+                        <li>
+                          <img
+                            src="./assets/brand-logos/Webpack.svg"
+                            alt="Webpack"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </AccordionContent>
                 </AccordionItem>
               </Accordion>
             </ContainerNarrow>
