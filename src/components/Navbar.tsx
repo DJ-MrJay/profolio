@@ -102,15 +102,12 @@ export default function Navbar() {
       transition={{ duration: 0.3 }}
       className={`fixed top-0 left-0 w-full z-50 ${
         isHomePage ? "bg-transparent border-none" : ""
-      }`}
+      } ${isHomePage ? "md:pr-4 md:pb-0.5" : ""}`}
       style={{
         backgroundColor: isHomePage ? "transparent" : "var(--background-color)",
         height: "var(--navbar-height)",
         color: "var(--text-color)",
         borderBottom: isHomePage ? "none" : `2px solid var(--shade-100)`,
-        // Compensate for hidden content
-        paddingRight: isHomePage ? "16px" : "0",
-        paddingBottom: isHomePage ? "2px" : "0",
       }}
     >
       <Container className="h-full">
@@ -124,7 +121,7 @@ export default function Navbar() {
             <div className="flex justify-start">
               <Image
                 src="/assets/images/jonahwambua.svg"
-                alt=""
+                alt="Logo"
                 width={500}
                 height={300}
                 className="h-4 sm:h-4 md:h-5 logo object-left"
