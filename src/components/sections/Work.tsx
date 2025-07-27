@@ -4,6 +4,16 @@ import { motion } from "framer-motion";
 
 const workItems = [
   {
+    title: "This Portfolio",
+    description:
+      "This portfolio showcases a collection of my projects, highlighting my skills in web development and design. Each project is a testament to my ability to create functional and aesthetically pleasing applications.",
+    image: "/assets/images/portfolio-shot.png",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
+    codeUrl: "https://github.com/DJ-MrJay/profolio",
+    liveUrl: "https://jonah-profolio.vercel.app/",
+    reverse: true,
+  },
+  {
     title: "Spoticlone",
     description:
       "Spoticlone is a mobile application designed to mimic the functionality of the widely-used music streaming platform, Spotify. Using the Spotify API, it retrieves and plays music seamlessly. Developed using React Native and TypeScript, Spoticlone enables users to effortlessly search for songs and also mark them as favorites.",
@@ -118,7 +128,7 @@ const workItems = [
     ),
     image: "/assets/images/phil-shot.png",
     tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
-    liveUrl: "https://neolite.co.ke/",
+    liveUrl: "https://phil-logistics.com/",
     reverse: true,
   },
   {
