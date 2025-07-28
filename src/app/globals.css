@@ -213,11 +213,11 @@ h6 {
 }
 
 .scroller {
-  animation: scroller 30s linear infinite;
+  animation: scroller 40s linear infinite;
 }
 
 .scroller2 {
-  animation: scroller2 30s linear infinite;
+  animation: scroller2 40s linear infinite;
 }
 
 .scroller-container:hover .scroller,
