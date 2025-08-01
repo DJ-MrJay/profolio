@@ -38,7 +38,7 @@ export default function AboutPage() {
           />
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[var(--background-color)] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,var(--background-color))] -z-10" />
 
-          <ContainerNarrow>
+          <Container>
             <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-12 items-center">
               {/* Column 1 with the text */}
               <div className="space-y-4">
@@ -123,17 +123,15 @@ export default function AboutPage() {
                 ></div>
               </div>
             </div>
-          </ContainerNarrow>
+          </Container>
         </section>
 
-
-        <section className="py-[10%] md:py-[5%] mx-auto"
+        <section
+          className="py-[10%] md:py-[5%] mx-auto"
           style={{ backgroundColor: "var(--shade-100)" }}
         >
-          <Container>
-
+          <ContainerNarrow>
             <div className="space-y-12">
-
               <h4>Experience</h4>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="experience-1">
@@ -339,7 +337,6 @@ export default function AboutPage() {
                 </AccordionItem>
               </Accordion>
 
-
               <h4>Skills</h4>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="experience">
@@ -349,8 +346,6 @@ export default function AboutPage() {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-
-
 
               <div className="flex flex-col items-center gap-12 w-full">
                 <Link
@@ -399,7 +394,7 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-          </Container>
+          </ContainerNarrow>
         </section>
       </motion.main>
       <Footer />
