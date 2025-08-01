@@ -25,7 +25,10 @@ export default function HomePage() {
         {/* Background Image Layer */}
         <div
           id="home"
-          className="absolute inset-0 pointer-events-none hidden lg:block bg-[url('/assets/images/mugshot.png')] bg-no-repeat bg-right-bottom bg-contain dark:filter dark:grayscale z-10"
+          className="absolute inset-0 pointer-events-none hidden lg:block bg-[url('/assets/images/mugshot.png')] bg-no-repeat bg-right-bottom bg-contain z-10"
+          style={{
+            filter: "var(--image-filter)",
+          }}
         />
 
         {/* Foreground Content */}
@@ -61,8 +64,9 @@ export default function HomePage() {
                 }}
               >
                 <h4 className="leading-tight">
-                  I develop web applications & digital designs, prioritizing user
-                  experience, functionality, responsiveness, and accessibility.
+                  I develop web applications & digital designs, prioritizing
+                  user experience, functionality, responsiveness, and
+                  accessibility.
                 </h4>
               </motion.div>
 

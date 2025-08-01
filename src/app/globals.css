@@ -18,6 +18,8 @@
   --secondary-color: #ccd0be;
   --grey-color: #c2bfbc;
   --grey-text: #595959;
+  
+  --image-filter: none;
 }
 
 /* Root variables (dark theme) */
@@ -33,6 +35,8 @@
   --secondary-color: #a67a59;
   --grey-color: #303f50;
   --grey-text: #cfd8e2;
+  
+  --image-filter: grayscale(100%);
 }
 
 /* Navbar height for desktop */

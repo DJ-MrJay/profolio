@@ -111,13 +111,14 @@ export default function AboutPage() {
               {/* Column 2 with the image */}
               <div className="hidden sm:block relative w-full h-full">
                 <div
-                  className="absolute inset-0 bg-no-repeat bg-right bg-contain filter dark:grayscale"
+                  className="absolute inset-0 bg-no-repeat bg-right bg-contain"
                   style={{
                     backgroundImage: "url('/assets/images/jay-img.png')",
                     backgroundSize: "contain",
                     backgroundPosition: "right bottom",
                     height: "100%",
                     width: "100%",
+                    filter: "var(--image-filter)",
                   }}
                 ></div>
               </div>
@@ -125,12 +126,14 @@ export default function AboutPage() {
           </ContainerNarrow>
         </section>
 
-        <section
-          className="py-[10%] md:py-[5%] mx-auto"
+
+        <section className="py-[10%] md:py-[5%] mx-auto"
           style={{ backgroundColor: "var(--shade-100)" }}
         >
           <Container>
+
             <div className="space-y-12">
+
               <h4>Experience</h4>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="experience-1">
@@ -336,6 +339,7 @@ export default function AboutPage() {
                 </AccordionItem>
               </Accordion>
 
+
               <h4>Skills</h4>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="experience">
@@ -345,6 +349,8 @@ export default function AboutPage() {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
+
+
 
               <div className="flex flex-col items-center gap-12 w-full">
                 <Link
