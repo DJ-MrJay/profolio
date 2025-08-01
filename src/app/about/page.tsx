@@ -129,8 +129,8 @@ export default function AboutPage() {
           className="py-[10%] md:py-[5%] mx-auto"
           style={{ backgroundColor: "var(--shade-100)" }}
         >
-          <div className="space-y-12">
-            <ContainerNarrow>
+          <Container>
+            <div className="space-y-12">
               <h4>Experience</h4>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="experience-1">
@@ -335,9 +335,7 @@ export default function AboutPage() {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-            </ContainerNarrow>
 
-            <ContainerNarrow>
               <h4>Skills</h4>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="experience">
@@ -347,9 +345,7 @@ export default function AboutPage() {
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
-            </ContainerNarrow>
 
-            <Container>
               <div className="flex flex-col items-center gap-12 w-full">
                 <Link
                   href="https://docs.google.com/document/d/15XFe3O-jGuixgCD0M3unRk_taDqisG_onwW5VivDn7w/edit?usp=sharing"
@@ -396,8 +392,8 @@ export default function AboutPage() {
                   </Link>
                 </div>
               </div>
-            </Container>
-          </div>
+            </div>
+          </Container>
         </section>
       </motion.main>
       <Footer />

@@ -7,7 +7,7 @@ interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 export function ContainerNarrow({ children, className, ...props }: ContainerProps) {
   return (
     <div
-      className={cn("w-full max-w-[90%] sm:max-w-[70%] mx-auto", className)}
+      className={cn("max-w-[1032px] mx-auto px-[5vw]", className)}
       {...props}
     >
       {children}
