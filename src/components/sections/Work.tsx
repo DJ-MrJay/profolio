@@ -193,42 +193,42 @@ export default function Work() {
       style={{ backgroundColor: "var(--shade-100)" }}
     >
       <Container>
-        <div className="mb-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.8 }}
-          >
-            Work
-          </motion.h2>
+      <div className="mb-6">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.8 }}
+        >
+          Work
+        </motion.h2>
 
-          <motion.p
-            className="text-xl sm:text-2xl"
-            initial={{ clipPath: "inset(0 100% 0 0)" }}
-            whileInView={{ clipPath: "inset(0 0% 0 0)" }}
-            transition={{
-              duration: 1,
-              ease: "easeInOut",
-              delay: 0.5,
-            }}
-          >
-            I specialize in contract-based work, with occasional freelance
-            projects or personal endeavors driven by passion. Below are some of
-            my recent works:
-          </motion.p>
+        <motion.p
+          className="text-xl sm:text-2xl"
+          initial={{ clipPath: "inset(0 100% 0 0)" }}
+          whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+        >
+          I specialize in contract-based work, with occasional freelance
+          projects or personal endeavors driven by passion. Below are some of my
+          recent works:
+        </motion.p>
+      </div>
+
+      {workItems.map((item, index) => (
+        <div
+          key={index}
+          className={
+            index === workItems.length - 1 ? "pb-0" : "pb-[10%] md:pb-[5%]"
+          }
+        >
+          <WorkItem {...item} />
         </div>
-
-        {workItems.map((item, index) => (
-          <div
-            key={index}
-            className={
-              index === workItems.length - 1 ? "pb-0" : "pb-[10%] md:pb-[5%]"
-            }
-          >
-            <WorkItem {...item} />
-          </div>
-        ))}
+      ))}
       </Container>
     </section>
   );

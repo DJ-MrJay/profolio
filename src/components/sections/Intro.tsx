@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ContainerNarrow } from "../ContainerNarrow";
 import { cn } from "../../lib/utils";
 import { motion } from "framer-motion";
+import { ContainerNarrow } from "../ContainerNarrow";
 
 export default function Intro() {
   return (
@@ -19,7 +19,7 @@ export default function Intro() {
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[var(--background-color)] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,var(--background-color))] -z-10" />
 
       {/* Content */}
-      <ContainerNarrow className="h-full p-0">
+      <ContainerNarrow className="h-full">
         <div className="flex h-full items-center justify-center">
           <div className="mx-auto space-y-4">
             <motion.h2
