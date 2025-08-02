@@ -356,45 +356,47 @@ export default function AboutPage() {
                 >
                   Request Résumé
                 </Link>
-
-                <div className="flex items-center justify-between w-full">
-                  <Link
-                    href="/main#intro"
-                    className="flex items-center gap-2 scroll-smooth"
-                  >
-                    <motion.div
-                      animate={{ x: [0, -5, 0] }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 1.2,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      <ArrowLeft />
-                    </motion.div>
-                    Go Back
-                  </Link>
-
-                  <Link
-                    href="/main#work"
-                    className="flex items-center gap-2 scroll-smooth"
-                  >
-                    Continue
-                    <motion.div
-                      animate={{ x: [0, 5, 0] }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 1.2,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      <ArrowRight />
-                    </motion.div>
-                  </Link>
-                </div>
               </div>
             </div>
           </ContainerNarrow>
+
+          <Container>
+            <div className="flex items-center justify-between w-full mt-12">
+              <Link
+                href="/main#intro"
+                className="flex items-center gap-2 scroll-smooth"
+              >
+                <motion.div
+                  animate={{ x: [0, -5, 0] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 1.2,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <ArrowLeft />
+                </motion.div>
+                Go Back
+              </Link>
+
+              <Link
+                href="/main#work"
+                className="flex items-center gap-2 scroll-smooth"
+              >
+                Continue
+                <motion.div
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 1.2,
+                    ease: "easeInOut",
+                  }}
+                >
+                  <ArrowRight />
+                </motion.div>
+              </Link>
+            </div>
+          </Container>
         </section>
       </motion.main>
       <Footer />
