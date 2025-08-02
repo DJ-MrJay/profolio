@@ -1,6 +1,6 @@
 "use client";
 
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Header";
 import Intro from "../../components/sections/Intro";
 import Work from "../../components/sections/Work";
 import Articles from "../../components/sections/Articles";

@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Header";
 import Footer from "../../components/Footer";
 import Link from "next/link";
 import { Card } from "../../components/ui/card";

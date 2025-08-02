@@ -89,76 +89,75 @@ export default function ContactSection() {
             </motion.p>
           </div>
         </div>
-
-        <ContainerNarrow>
-          <div className="form-container pt-[10%] md:pt-[5%]">
-            <form
-              onSubmit={handleSubmit(onSubmit)}
-              className="flex flex-col gap-8 text-center"
-            >
-              <div className="flex flex-col md:flex-row gap-4">
-                <Input
-                  type="text"
-                  placeholder="Your name?"
-                  className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)] placeholder:text-[18px]"
-                  {...register("fullname", {
-                    required: "Name is required.",
-                    maxLength: 30,
-                    onChange: (e) => {
-                      const formatted = capitalizeEachWord(e.target.value);
-                      setValue("fullname", formatted);
-                    },
-                  })}
-                />
-                <Input
-                  type="email"
-                  placeholder="Your email address?"
-                  className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)] placeholder:text-[18px]"
-                  {...register("email", {
-                    required: "Email is required.",
-                    pattern: {
-                      value: /\S+@\S+\.\S+/,
-                      message: "Please enter a valid email address.",
-                    },
-                  })}
-                />
-              </div>
-
-              <Textarea
-                placeholder="Type your message"
+      </Container>
+      <ContainerNarrow>
+        <div className="form-container pt-[10%] md:pt-[5%]">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex flex-col gap-8 text-center"
+          >
+            <div className="flex flex-col md:flex-row gap-4">
+              <Input
+                type="text"
+                placeholder="Your name?"
                 className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)] placeholder:text-[18px]"
-                {...register("message", {
-                  required: "Message is required.",
-                  maxLength: 500,
+                {...register("fullname", {
+                  required: "Name is required.",
+                  maxLength: 30,
+                  onChange: (e) => {
+                    const formatted = capitalizeEachWord(e.target.value);
+                    setValue("fullname", formatted);
+                  },
                 })}
               />
+              <Input
+                type="email"
+                placeholder="Your email address?"
+                className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)] placeholder:text-[18px]"
+                {...register("email", {
+                  required: "Email is required.",
+                  pattern: {
+                    value: /\S+@\S+\.\S+/,
+                    message: "Please enter a valid email address.",
+                  },
+                })}
+              />
+            </div>
 
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-rounded mx-auto"
-              >
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </Button>
-            </form>
-          </div>
+            <Textarea
+              placeholder="Type your message"
+              className="flex-1 border-2 border-[var(--grey-color)] bg-transparent p-3 md:p-4 rounded-md focus:outline-none focus:border-[var(--shade-500)] placeholder:text-[18px]"
+              {...register("message", {
+                required: "Message is required.",
+                maxLength: 500,
+              })}
+            />
 
-          <div className="mt-4 text-sm text-center">
-            {errors.fullname && <div>{errors.fullname.message}</div>}
-            {errors.email && <div>{errors.email.message}</div>}
-            {errors.message && <div>{errors.message.message}</div>}
+            <Button
+              type="submit"
+              disabled={isSubmitting}
+              className="btn-rounded mx-auto"
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </Button>
+          </form>
+        </div>
 
-            {status === "success" && (
-              <div className="mt-4">Thank you. Your message has been sent.</div>
-            )}
-            {status === "error" && (
-              <div className="mt-4">
-                Something went wrong. Please try again later.
-              </div>
-            )}
-          </div>
-        </ContainerNarrow>
-      </Container>
+        <div className="mt-4 text-sm text-center">
+          {errors.fullname && <div>{errors.fullname.message}</div>}
+          {errors.email && <div>{errors.email.message}</div>}
+          {errors.message && <div>{errors.message.message}</div>}
+
+          {status === "success" && (
+            <div className="mt-4">Thank you. Your message has been sent.</div>
+          )}
+          {status === "error" && (
+            <div className="mt-4">
+              Something went wrong. Please try again later.
+            </div>
+          )}
+        </div>
+      </ContainerNarrow>
     </section>
   );
 }

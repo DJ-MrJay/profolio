@@ -11,6 +11,27 @@ import Image from "next/image";
 import { easeInOut } from "framer-motion";
 import { usePathname } from "next/navigation";
 
+interface NavLinkProps {
+  href: string;
+  children: React.ReactNode;
+  isActive?: boolean;
+}
+
+const NavLink = ({ href, children, isActive }: NavLinkProps) => {
+  return (
+    <a
+      href={href}
+      className={`relative text-sm uppercase tracking-wide transition-colors hover:text-[var(--shade-500)] group ${
+        isActive ? "text-[var(--shade-500)] font-medium" : ""
+      }`}
+    >
+      {children}
+      {/* Growing underline */}
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--shade-500)] transition-all duration-300 ease-out group-hover:w-full" />
+    </a>
+  );
+};
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -142,17 +163,13 @@ export default function Navbar() {
               aria-hidden={isHomePage}
             >
               {links.map((link) => (
-                <a
+                <NavLink
                   key={link.href}
                   href={link.href}
-                  className={`text-sm uppercase tracking-wide transition-colors hover:text-[var(--shade-500)] ${
-                    active === link.href
-                      ? "text-[var(--shade-500)] font-medium"
-                      : ""
-                  }`}
+                  isActive={active === link.href}
                 >
                   {link.label}
-                </a>
+                </NavLink>
               ))}
             </nav>
 
