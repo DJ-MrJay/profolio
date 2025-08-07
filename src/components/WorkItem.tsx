@@ -27,6 +27,25 @@ export default function WorkItem({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
+  const TAG_LINKS: Record<string, string> = {
+    'Next.js': 'https://nextjs.org/',
+    'TypeScript': 'https://www.typescriptlang.org/',
+    'Tailwind CSS': 'https://tailwindcss.com/',
+    'shadcn/ui': 'https://ui.shadcn.com/',
+    'React': 'https://react.dev/',
+    'React Native': 'https://reactnative.dev/',
+    'Expo': 'https://expo.dev/',
+    'GraphQL': 'https://graphql.org/',
+    'Redux': 'https://redux.js.org/',
+    'Ruby On Rails': 'https://rubyonrails.org/',
+    'Ruby': 'https://www.ruby-lang.org/',
+    'HTML5': 'https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5',
+    'CSS3': 'https://developer.mozilla.org/docs/Web/CSS',
+    'JavaScript': 'https://developer.mozilla.org/docs/Web/JavaScript',
+    'WordPress': 'https://wordpress.com/',
+    'PHP': 'https://www.php.net/',
+  };
+
   return (
     <motion.div
       ref={ref}
@@ -68,7 +87,18 @@ export default function WorkItem({
           {tags.map((tag, index) => (
             <li key={tag} className="flex items-center gap-1 text-xs">
               {index !== 0 && <span className="text-xs">&#x2022;</span>}
-              {tag}
+              {TAG_LINKS[tag] ? (
+                <a
+                  href={TAG_LINKS[tag]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold hover:underline hover:text-[var(--shade-600)] transition-colors"
+                >
+                  {tag}
+                </a>
+              ) : (
+                tag
+              )}
             </li>
           ))}
         </ul>
