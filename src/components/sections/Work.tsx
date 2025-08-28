@@ -221,7 +221,7 @@ const workItems = [
     image: "/assets/images/sjz-snap.jpg",
     tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
     liveUrl: "https://sjzflowers.co.ke/",
-    reverse: false,
+    reverse: true,
   },
   {
     title: "Brandchamp Marketing",
