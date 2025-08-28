@@ -199,6 +199,31 @@ const workItems = [
     liveUrl: "https://dj-mrjay.github.io/bookstore/",
   },
   {
+    title: "SJZ Flowers",
+    description: (
+      <>
+        Leveraging my expertise in{" "}
+        <a
+          href="https://www.wordpress.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "var(--shade-500)" }}
+        >
+          WordPress
+        </a>{" "}
+        development, I created an elegant and functional platform that
+        highlights SJZ Flowers' diverse catalog of fresh-cut flowers, export
+        services, and sustainable farming practices. The website features
+        seamless navigation, stunning floral imagery, and responsive design to
+        connect international buyers with Kenya's finest floral exports.
+      </>
+    ),
+    image: "/assets/images/sjz-snap.jpg",
+    tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
+    liveUrl: "https://sjzflowers.co.ke/",
+    reverse: false,
+  },
+  {
     title: "Brandchamp Marketing",
     description: (
       <>
@@ -222,7 +247,6 @@ const workItems = [
     image: "/assets/images/brand-champ.jpg",
     tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
     liveUrl: "https://brandchamp.co.ke/",
-    reverse: true,
   },
 ];
 
