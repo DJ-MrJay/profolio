@@ -49,7 +49,7 @@ const workItems = [
         aesthetically pleasing applications.
       </>
     ),
-    image: "/assets/images/portfolio-shot.png",
+    image: "/assets/images/portfolio-shot-2.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
     codeUrl: "https://github.com/DJ-MrJay/profolio",
     liveUrl: "https://jonah-profolio.vercel.app/",
