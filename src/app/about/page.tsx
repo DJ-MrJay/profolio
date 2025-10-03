@@ -113,7 +113,7 @@ export default function AboutPage() {
                 <div
                   className="absolute inset-0 bg-no-repeat bg-right bg-contain"
                   style={{
-                    backgroundImage: "url('/assets/images/jay-img.png')",
+                    backgroundImage: "url('/assets/images/jay-standing.png')",
                     backgroundSize: "contain",
                     backgroundPosition: "right bottom",
                     height: "100%",
