@@ -1,12 +1,12 @@
 # My Portfolio
 
-This is a modern portfolio website, showcasing my skills, projects, and professional experience. The portfolio features responsive design, smooth animations, and a clean, professional aesthetic. It is built with [Next.js](https://nextjs.org/){:target="_blank" rel="noopener noreferrer"}, [Tailwind CSS](https://tailwindcss.com/){:target="_blank" rel="noopener noreferrer"}, and [shadcn/ui](https://ui.shadcn.com/){:target="_blank" rel="noopener noreferrer"}. It showcases my work, articles, and contact information in a clean single-page layout.
+This is a modern portfolio website, showcasing my skills, projects, and professional experience. The portfolio features responsive design, smooth animations, and a clean, professional aesthetic. It is built with [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/), and [shadcn/ui](https://ui.shadcn.com/). It showcases my work, articles, and contact information in a clean single-page layout.
 
 ---
 
 ## 🔗 Live Demo
 
-[Visit the live site](https://jonah-profolio.vercel.app/){:target="_blank" rel="noopener noreferrer"}  
+[Visit the live site](https://jonah-profolio.vercel.app/)  
 
 ---
 
@@ -83,4 +83,4 @@ This project is open-source and available under the MIT License.
 
 ## 🙋‍♂️ Author
 
-**Jonah Wambua** - [GitHub](https://github.com/DJ-MrJay/){:target="_blank" rel="noopener noreferrer"} | [LinkedIn](https://www.linkedin.com/in/jonah-wambua/){:target="_blank" rel="noopener noreferrer"}
+**Jonah Wambua** - [GitHub](https://github.com/DJ-MrJay/) | [LinkedIn](https://www.linkedin.com/in/jonah-wambua/)
