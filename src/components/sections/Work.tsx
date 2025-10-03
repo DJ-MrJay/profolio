@@ -213,10 +213,10 @@ const workItems = [
           WordPress
         </a>{" "}
         development, I created an elegant and functional platform that
-        highlights SJZ Flowers' diverse catalog of fresh-cut flowers, export
+        highlights SJZ Flowers&apos; diverse catalogue of fresh-cut flowers, export
         services, and sustainable farming practices. The website features
         seamless navigation, stunning floral imagery, and responsive design to
-        connect international buyers with Kenya's finest floral exports.
+        connect international buyers with Kenya&apos;s finest floral exports.
       </>
     ),
     image: "/assets/images/sjz-snap.jpg",
