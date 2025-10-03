@@ -2,6 +2,7 @@
 
 import { useTheme } from "next-themes";
 import { Tooltip } from "react-tooltip";
+import Image from "next/image";
 
 const logosLight = [
   { src: "/assets/brand-logos/Nextjs-logo.svg", alt: "Next.js" },
@@ -94,10 +95,12 @@ export function LogosScroller() {
                   data-tooltip-id="logo-tooltip"
                   data-tooltip-content={logo.alt}
                 >
-                  <img
+                  <Image
                     src={logo.src}
                     alt={logo.alt}
-                    className="max-w-[90px] h-[35px] mx-4 sm:mx-6 md:mx-8"
+                    width={90}
+                    height={35}
+                    className="w-auto max-w-[70px] sm:max-w-[90px] h-[25px] sm:h-[35px] mx-[20px] sm:mx-[25px] md:mx-[30px]"
                   />
                 </a>
               </div>
