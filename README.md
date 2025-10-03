@@ -61,7 +61,7 @@ Open http://localhost:3000 to view the project in your browser.
 <div align="center">
   <table>
     <tr>
-      <td style="padding: 10px;"><img src="/public/screenshots/Screenshot1.png" alt="Homepage"/></td>
+      <td style="padding: 10px;"><img src="/public/assets/images/portfolio-shot-2.png" alt="Homepage"/></td>
       <td style="padding: 10px;"><img src="/public/screenshots/Screenshot2.png" alt="About Page"/></td>
     </tr>
     <tr>
