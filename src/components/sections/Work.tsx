@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "../Container";
 import WorkItem from "../WorkItem";
 import { motion } from "framer-motion";
@@ -240,8 +241,7 @@ const workItems = [
         development, I delivered a visually compelling and functionally robust
         website within an impressive three-day timeframe. The result is a
         polished online presence that effectively showcases the agency&apos;s
-        services and portfolio, reflecting their commitment to excellence in
-        brand marketing.
+        services and portfolio.
       </>
     ),
     image: "/assets/images/brand-champ.jpg",
@@ -294,6 +294,17 @@ export default function Work() {
             <WorkItem {...item} />
           </div>
         ))}
+
+<div className="text-center pt-16 pb-4 scroll-in">
+          <Link
+            href="https://github.com/DJ-MrJay?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-rounded items-center"
+          >
+            View More Projects
+          </Link>
+        </div>
       </Container>
     </section>
   );

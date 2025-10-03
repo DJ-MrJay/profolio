@@ -340,7 +340,7 @@ export default function AboutPage() {
               <h4>Skills</h4>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="experience">
-                  <AccordionTrigger>Tech Stack</AccordionTrigger>
+                  <AccordionTrigger>Tech Stack & Tools</AccordionTrigger>
                   <AccordionContent>
                     <LogosScroller />
                   </AccordionContent>

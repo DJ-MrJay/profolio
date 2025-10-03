@@ -23,6 +23,12 @@ const logosLight = [
   { src: "/assets/brand-logos/MySQL-logo.svg", alt: "MySQL" },
   { src: "/assets/brand-logos/Postgresql-logo.svg", alt: "PostgreSQL" },
   { src: "/assets/brand-logos/Oracle-logo.svg", alt: "Oracle" },
+  { src: "/assets/brand-logos/Illustrator-icon.svg", alt: "Illustrator" },
+  { src: "/assets/brand-logos/Photoshop-icon.svg", alt: "Photoshop" },
+  { src: "/assets/brand-logos/InDesign-icon.svg", alt: "InDesign" },
+  { src: "/assets/brand-logos/Premiere-Pro-icon.svg", alt: "Premiere Pro" },
+  { src: "/assets/brand-logos/Figma-logo.svg", alt: "Figma" },
+  { src: "/assets/brand-logos/Vegas-Pro-21-logo.svg", alt: "Vegas Pro" },
 ];
 
 const logosDark = [
@@ -51,6 +57,12 @@ const logosDark = [
   { src: "/assets/brand-logos/MySQL-logo-light.svg", alt: "MySQL" },
   { src: "/assets/brand-logos/Postgresql-logo-light.svg", alt: "PostgreSQL" },
   { src: "/assets/brand-logos/Oracle-logo-light.svg", alt: "Oracle" },
+  { src: "/assets/brand-logos/Illustrator-icon-light.svg", alt: "Illustrator" },
+  { src: "/assets/brand-logos/Photoshop-icon-light.svg", alt: "Photoshop" },
+  { src: "/assets/brand-logos/InDesign-icon-light.svg", alt: "InDesign" },
+  { src: "/assets/brand-logos/Premiere-Pro-icon-light.svg", alt: "Premiere Pro" },
+  { src: "/assets/brand-logos/Figma-logo-light.svg", alt: "Figma" },
+  { src: "/assets/brand-logos/Vegas-Pro-21-logo-light.svg", alt: "Vegas Pro" }, 
 ];
 
 export function LogosScroller() {
