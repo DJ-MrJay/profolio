@@ -213,8 +213,8 @@ const workItems = [
           WordPress
         </a>{" "}
         development, I created an elegant and functional platform that
-        highlights SJZ Flowers&apos; diverse catalogue of fresh-cut flowers, export
-        services, and sustainable farming practices. The website features
+        highlights SJZ Flowers&apos; diverse catalogue of fresh-cut flowers,
+        export services, and sustainable farming practices. The website features
         seamless navigation, stunning floral imagery, and responsive design to
         connect international buyers with Kenya&apos;s finest floral exports.
       </>
@@ -295,7 +295,7 @@ export default function Work() {
           </div>
         ))}
 
-<div className="text-center pt-16 pb-4 scroll-in">
+        <div className="text-center pt-16 pb-4 scroll-in">
           <Link
             href="https://github.com/DJ-MrJay?tab=repositories"
             target="_blank"

@@ -31,7 +31,7 @@ export default function Intro() {
                 transition: { duration: 0.9, ease: "easeOut" },
               }}
             >
-              Hello!
+              Hi!
             </motion.h2>
             <motion.p
               className="text-xl sm:text-2xl"
@@ -42,19 +42,21 @@ export default function Intro() {
                 transition: { duration: 0.9, ease: "easeOut", delay: 0.3 },
               }}
             >
-              I am a Kenyan creative designer and full-stack developer crafting
-              elegant, high-performing web experiences since 2015. With a
-              passion for design, clean code, captivating aesthetics, and
-              continuous learning, I bring ideas to life through thoughtful,
-              user-focused solutions. Music keeps me inspired.
+              I transform complex ideas into elegant, high-performing digital
+              experiences. As a Kenyan creative specializing in full-stack
+              development and design, I bridge the gap between captivating
+              aesthetics and clean, robust code. Since 2015, I've been crafting
+              user-focused solutions that don't just look great but drive
+              results as well.
             </motion.p>
             <motion.p
               className="text-xl sm:text-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 0.9, ease: "easeOut", delay: 0.5 },
+              initial={{ clipPath: "inset(0 100% 0 0)" }}
+              whileInView={{ clipPath: "inset(0 0% 0 0)" }}
+              transition={{
+                duration: 1,
+                ease: "easeInOut",
+                delay: 0.5,
               }}
             >
               Let’s build something amazing together!
