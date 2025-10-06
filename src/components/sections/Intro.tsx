@@ -45,8 +45,8 @@ export default function Intro() {
               I transform complex ideas into elegant, high-performing digital
               experiences. As a Kenyan creative specializing in full-stack
               development and design, I bridge the gap between captivating
-              aesthetics and clean, robust code. Since 2015, I've been crafting
-              user-focused solutions that don't just look great but drive
+              aesthetics and clean, robust code. Since 2015, I have been crafting
+              user-focused solutions that don&apos;t just look great but drive
               results as well.
             </motion.p>
             <motion.p
