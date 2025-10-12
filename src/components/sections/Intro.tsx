@@ -65,7 +65,7 @@ export default function Intro() {
               href="/about"
               className="btn-rounded mt-2 inline-flex items-center"
             >
-              The Details
+              Read The Details
             </Link>
           </div>
         </div>
