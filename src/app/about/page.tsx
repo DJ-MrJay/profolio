@@ -383,7 +383,7 @@ export default function AboutPage() {
                 href="/main#work"
                 className="flex items-center gap-2 scroll-smooth"
               >
-                Continue
+                Work
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{
