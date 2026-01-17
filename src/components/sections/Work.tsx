@@ -64,30 +64,30 @@ const workItems = [
     codeUrl: "https://github.com/DJ-MrJay/spoticlone",
     liveUrl: "https://spoticlone-demo.vercel.app",
   },
-  {
-    title: "Donga Carspa",
-    description: (
-      <>
-        I had the privilege of creating a website for Donga Carspa, a renowned
-        leader in automotive care solutions. Drawing on my deep expertise in{" "}
-        <a
-          href="https://www.wordpress.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "var(--shade-500)" }}
-        >
-          WordPress
-        </a>
-        , I successfully developed and launched the website within just five
-        days. The result was a polished, professional online presence that
-        perfectly embodies the brand’s dedication to quality and excellence.
-      </>
-    ),
-    image: "/assets/images/donga-shot.png",
-    tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
-    liveUrl: "https://donga.co.ke",
-    reverse: true,
-  },
+  // {
+  //   title: "Donga Carspa",
+  //   description: (
+  //     <>
+  //       I had the privilege of creating a website for Donga Carspa, a renowned
+  //       leader in automotive care solutions. Drawing on my deep expertise in{" "}
+  //       <a
+  //         href="https://www.wordpress.com"
+  //         target="_blank"
+  //         rel="noopener noreferrer"
+  //         style={{ color: "var(--shade-500)" }}
+  //       >
+  //         WordPress
+  //       </a>
+  //       , I successfully developed and launched the website within just five
+  //       days. The result was a polished, professional online presence that
+  //       perfectly embodies the brand’s dedication to quality and excellence.
+  //     </>
+  //   ),
+  //   image: "/assets/images/donga-shot.png",
+  //   tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
+  //   liveUrl: "https://donga.co.ke",
+  //   reverse: true,
+  // },
   {
     title: "Super Wheels Car Rentals",
     description: (
@@ -112,6 +112,7 @@ const workItems = [
     tags: ["React", "Redux", "Ruby On Rails", "CSS3"],
     codeUrl: "https://github.com/Itswali/Rental-Cars",
     liveUrl: "https://supercarsrentals.onrender.com/",
+    reverse: true,
   },
   {
     title: "Money Matters",
@@ -139,7 +140,6 @@ const workItems = [
     tags: ["Ruby", "HTML5", "CSS3", "JavaScript"],
     codeUrl: "https://github.com/DJ-MrJay/Money-Matters",
     liveUrl: "https://money-matters-p0pp.onrender.com/",
-    reverse: true,
   },
   {
     title: "Blog App",
@@ -148,6 +148,7 @@ const workItems = [
     image: "/assets/images/blog-app.png",
     tags: ["Ruby", "HTML5", "CSS3", "JavaScript"],
     codeUrl: "https://github.com/DJ-MrJay/My-Blog-App",
+    reverse: true,
   },
   {
     title: "Phil Logistics",
@@ -171,7 +172,6 @@ const workItems = [
     image: "/assets/images/phil-shot.png",
     tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
     liveUrl: "https://phil-logistics.com/",
-    reverse: true,
   },
   {
     title: "Bookstore CMS",
@@ -198,6 +198,7 @@ const workItems = [
     tags: ["React", "Redux", "HTML5", "CSS3"],
     codeUrl: "https://github.com/DJ-MrJay/Awesome-books",
     liveUrl: "https://dj-mrjay.github.io/bookstore/",
+    reverse: true,
   },
   {
     title: "SJZ Flowers",
@@ -222,7 +223,6 @@ const workItems = [
     image: "/assets/images/sjz-snap.jpg",
     tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
     liveUrl: "https://sjzflowers.co.ke/",
-    reverse: true,
   },
   {
     title: "Brandchamp Marketing",
@@ -247,6 +247,7 @@ const workItems = [
     image: "/assets/images/brand-champ.jpg",
     tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
     liveUrl: "https://brandchamp.co.ke/",
+    reverse: true,
   },
 ];
 
