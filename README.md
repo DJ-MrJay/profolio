@@ -79,7 +79,7 @@ Open http://localhost:3000 to view the project in your browser.
 
 ## 📄 License
 
-This project is open-source and available under the MIT License.
+This project is open-source and available under the [MIT Licence](./MIT.md).
 
 ## 🙋‍♂️ Author
 
