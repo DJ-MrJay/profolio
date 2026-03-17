@@ -249,6 +249,30 @@ const workItems = [
     liveUrl: "https://brandchamp.co.ke/",
     reverse: true,
   },
+  {
+    title: "Neo Lite Energies",
+    description: (
+      <>
+        I had the privilege of creating a website for Neo Lite Energies, a
+        renowned leader in the Oil and Gas industry. Leveraging my deep
+        expertise in{" "}
+        <a
+          href="https://www.wordpress.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "var(--shade-500)" }}
+        >
+          WordPress
+        </a>
+        , I successfully developed and launched the website within just two
+        days. The result was a professional CMS-based website that is easy for
+        the client to update and manage.
+      </>
+    ),
+    image: "/assets/images/neo-lite-energies.jpg",
+    tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
+    liveUrl: "https://brandchamp.co.ke/",
+  },
 ];
 
 export default function Work() {
