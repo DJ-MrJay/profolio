@@ -269,9 +269,9 @@ const workItems = [
         the client to update and manage.
       </>
     ),
-    image: "/assets/images/neo-lite-energies.jpg",
+    image: "/assets/images/neolite.jpg",
     tags: ["WordPress", "PHP", "HTML5", "CSS3", "JavaScript"],
-    liveUrl: "https://brandchamp.co.ke/",
+    liveUrl: "https://neolite-energies.co.ke/",
   },
 ];
 
