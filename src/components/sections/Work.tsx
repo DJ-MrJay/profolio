@@ -56,13 +56,13 @@ const workItems = [
     reverse: true,
   },
   {
-    title: "Spoticlone",
+    title: "Mix Streamer",
     description:
-      "Spoticlone is a mobile application designed to mimic the functionality of the widely-used music streaming platform, Spotify. Using the Spotify API, it retrieves and plays music seamlessly. Developed using React Native and TypeScript, Spoticlone enables users to effortlessly search for songs and also mark them as favorites.",
-    image: "/assets/images/spoticlone-mockup.jpg",
-    tags: ["React Native", "TypeScript", "Expo", "GraphQL"],
-    codeUrl: "https://github.com/DJ-MrJay/spoticlone",
-    liveUrl: "https://spoticlone-demo.vercel.app",
+      "Mix Streamer is a mobile first web application designed to deliver a seamless DJ mix streaming experience. Instead of relying on third party streaming APIs, it uses Google Drive as the audio source. Built with Next.js and TypeScript, the platform allows users to browse curated mixes, search across rich metadata, and enjoy uninterrupted playback through a persistent global player.",
+    image: "/assets/images/mix-streamer.jpg",
+    tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "shadcn/ui"],
+    codeUrl: "https://github.com/DJ-MrJay/mix-streamer",
+    liveUrl: "https://mix-streamer.vercel.app/",
   },
   // {
   //   title: "Donga Carspa",

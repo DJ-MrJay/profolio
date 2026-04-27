@@ -32,6 +32,7 @@ export default function WorkItem({
     'TypeScript': 'https://www.typescriptlang.org/',
     'Tailwind CSS': 'https://tailwindcss.com/',
     'shadcn/ui': 'https://ui.shadcn.com/',
+    'Supabase': 'https://supabase.com/',
     'React': 'https://react.dev/',
     'React Native': 'https://reactnative.dev/',
     'Expo': 'https://expo.dev/',
