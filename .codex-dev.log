@@ -1,0 +1,40 @@
+
+> profolio@0.1.0 dev
+> next dev --turbopack
+
+ ⚠ Port 3000 is in use by an unknown process, using available port 3001 instead.
+   ▲ Next.js 15.4.2 (Turbopack)
+   - Local:        http://localhost:3001
+   - Network:      http://192.168.100.17:3001
+
+ ✓ Starting...
+Slow filesystem detected. The benchmark took 295ms. If C:\Users\Mr. Jay\Desktop\profolio\.next is a network drive, consider moving it to a local folder. If you have an antivirus enabled, consider excluding your project directory.
+ ✓ Ready in 4.6s
+ ○ Compiling /main ...
+ ✓ Compiled /main in 31.4s
+ GET / 200 in 11108ms
+ GET /main 200 in 34151ms
+ GET /main 200 in 758ms
+ ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /main 200 in 848ms
+ GET /main 200 in 1031ms
+ GET /main 200 in 906ms
+ GET / 200 in 751ms
+ GET /main 200 in 1224ms
+ GET / 200 in 1047ms
+ ✓ Compiled in 5.3s
+ GET / 200 in 2880ms
+ GET / 200 in 1419ms
+ ✓ Compiled in 389ms
+ ✓ Compiled in 1879ms
+ ✓ Compiled in 297ms
+ ✓ Compiled in 282ms
+ ✓ Compiled in 2.1s
+ GET / 200 in 6539ms
+ ✓ Compiled in 2.2s
+ ✓ Compiled in 311ms
+ ✓ Compiled in 1990ms
+ ✓ Compiled in 1273ms
+ ✓ Compiled in 244ms
+ GET /main 200 in 351ms

@@ -18,21 +18,10 @@ export default function Home() {
       >
         <Navbar />
         <main className="mt-20 scroll-smooth">
-          <section id="intro">
-            <Intro />
-          </section>
-
-          <section id="work">
-            <Work />
-          </section>
-
-          <section id="articles">
-            <Articles />
-          </section>
-
-          <section id="contact">
-            <Contact />
-          </section>
+          <Intro />
+          <Work />
+          <Articles />
+          <Contact />
         </main>
         <Footer />
       </motion.div>

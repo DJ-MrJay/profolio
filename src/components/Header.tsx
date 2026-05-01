@@ -17,6 +17,11 @@ interface NavLinkProps {
   isActive?: boolean;
 }
 
+const getLinkHash = (href: string) => {
+  const hashIndex = href.indexOf("#");
+  return hashIndex >= 0 ? href.slice(hashIndex) : "";
+};
+
 const NavLink = ({ href, children, isActive }: NavLinkProps) => {
   return (
     <a
@@ -37,7 +42,7 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const [active, setActive] = useState<string>("#about");
+  const [activeHash, setActiveHash] = useState("");
   const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
 
@@ -74,13 +79,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Update active link on hash change
+  // Keep the active nav state aligned with the current section hash.
   useEffect(() => {
     if (isHomePage) return;
-    const updateHash = () => setActive(window.location.hash);
-    window.addEventListener("hashchange", updateHash);
-    return () => window.removeEventListener("hashchange", updateHash);
-  }, [isHomePage]);
+    const updateActiveHash = () => {
+      if (pathname === "/main") {
+        setActiveHash(window.location.hash || "#intro");
+        return;
+      }
+
+      setActiveHash("");
+    };
+
+    updateActiveHash();
+    window.addEventListener("hashchange", updateActiveHash);
+    return () => window.removeEventListener("hashchange", updateActiveHash);
+  }, [isHomePage, pathname]);
 
   const toggleTheme = useCallback(() => {
     setTheme(theme === "dark" ? "light" : "dark");
@@ -166,7 +180,7 @@ export default function Navbar() {
                 <NavLink
                   key={link.href}
                   href={link.href}
-                  isActive={active === link.href}
+                  isActive={activeHash === getLinkHash(link.href)}
                 >
                   {link.label}
                 </NavLink>
@@ -232,7 +246,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={`text-xl tracking-wide uppercase hover:text-[var(--shade-500)] ${
-                  active === link.href
+                  activeHash === getLinkHash(link.href)
                     ? "text-[var(--shade-500)] font-medium"
                     : ""
                 }`}
