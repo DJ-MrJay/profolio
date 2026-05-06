@@ -15,6 +15,15 @@ type FormValues = {
   message: string;
 };
 
+const CONTACT_FORM_ENDPOINT = "https://formcarry.com/s/MTj757WTopu";
+
+const capitalizeEachWord = (value: string) => {
+  return value
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
+};
+
 export default function ContactSection() {
   const {
     register,
@@ -28,7 +37,7 @@ export default function ContactSection() {
 
   const onSubmit = async (data: FormValues) => {
     try {
-      const res = await fetch("https://formcarry.com/s/MTj757WTopu", {
+      const res = await fetch(CONTACT_FORM_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,13 +55,6 @@ export default function ContactSection() {
     } catch {
       setStatus("error");
     }
-  };
-
-  const capitalizeEachWord = (value: string) => {
-    return value
-      .split(" ")
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join(" ");
   };
 
   return (
@@ -136,7 +138,7 @@ export default function ContactSection() {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="btn-rounded mx-auto"
+              className="btn-rounded self-start"
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </Button>

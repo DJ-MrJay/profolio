@@ -1,21 +1,52 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { Sun, Moon, Equal, X } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Container } from "./Container";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, easeInOut, motion } from "framer-motion";
 import SocialLinks from "./SocialLinks";
 import Image from "next/image";
-import { easeInOut } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { NAV_LINKS } from "@/data/navigation";
 
 interface NavLinkProps {
   href: string;
-  children: React.ReactNode;
+  children: ReactNode;
   isActive?: boolean;
 }
+
+const MENU_VARIANTS = {
+  initial: { opacity: 0, y: 20 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: easeInOut,
+      staggerChildren: 0.1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: 20,
+    transition: { duration: 0.2 },
+  },
+};
+
+const MENU_ITEM_VARIANTS = {
+  initial: { opacity: 0, y: 20 },
+  animate: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      ease: easeInOut,
+    },
+  },
+};
 
 const getLinkHash = (href: string) => {
   const hashIndex = href.indexOf("#");
@@ -40,18 +71,11 @@ const NavLink = ({ href, children, isActive }: NavLinkProps) => {
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useTheme();
-  const [prevScrollY, setPrevScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [activeHash, setActiveHash] = useState("");
   const [isMobile, setIsMobile] = useState(false);
+  const previousScrollY = useRef(0);
   const pathname = usePathname();
-
-  const links = [
-    { href: "/main#intro", label: "About" },
-    { href: "/main#work", label: "Work" },
-    { href: "/main#articles", label: "Articles" },
-    { href: "/main#contact", label: "Contact" },
-  ];
 
   // Check if we're on the home page
   const isHomePage = pathname === "/";
@@ -70,9 +94,9 @@ export default function Navbar() {
   const handleScroll = useCallback(() => {
     if (isHomePage) return;
     const currentScrollY = window.scrollY;
-    setIsVisible(currentScrollY < prevScrollY || currentScrollY < 10);
-    setPrevScrollY(currentScrollY);
-  }, [prevScrollY, isHomePage]);
+    setIsVisible(currentScrollY < previousScrollY.current || currentScrollY < 10);
+    previousScrollY.current = currentScrollY;
+  }, [isHomePage]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -99,36 +123,6 @@ export default function Navbar() {
   const toggleTheme = useCallback(() => {
     setTheme(theme === "dark" ? "light" : "dark");
   }, [theme, setTheme]);
-
-  const menuVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.4,
-        ease: easeInOut,
-        staggerChildren: 0.1,
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: 20,
-      transition: { duration: 0.2 },
-    },
-  };
-
-  const itemVariants = {
-    initial: { opacity: 0, y: 20 },
-    animate: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.4,
-        ease: easeInOut,
-      },
-    },
-  };
 
   return (
     <motion.header
@@ -176,7 +170,7 @@ export default function Navbar() {
               }`}
               aria-hidden={isHomePage}
             >
-              {links.map((link) => (
+              {NAV_LINKS.map((link) => (
                 <NavLink
                   key={link.href}
                   href={link.href}
@@ -190,7 +184,7 @@ export default function Navbar() {
             <div className="flex items-center gap-2">
               {/* Mobile Menu Toggle - Hidden on home page */}
               <button
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => setIsOpen((current) => !current)}
                 className={`md:hidden hover:text-[var(--shade-500)] cursor-pointer ${
                   isHomePage ? "opacity-0 pointer-events-none" : ""
                 }`}
@@ -232,17 +226,17 @@ export default function Navbar() {
             initial="initial"
             animate="animate"
             exit="exit"
-            variants={menuVariants}
+            variants={MENU_VARIANTS}
             className="md:hidden pt-16 pb-16 m-5 rounded-xl flex flex-col gap-4 items-center"
             style={{
               backgroundColor: "var(--background-color-transparent)",
               color: "var(--text-color)",
             }}
           >
-            {links.map((link) => (
+            {NAV_LINKS.map((link) => (
               <motion.a
                 key={link.href}
-                variants={itemVariants}
+                variants={MENU_ITEM_VARIANTS}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={`text-xl tracking-wide uppercase hover:text-[var(--shade-500)] ${
@@ -255,7 +249,7 @@ export default function Navbar() {
               </motion.a>
             ))}
 
-            <motion.div variants={itemVariants} className="mt-10">
+            <motion.div variants={MENU_ITEM_VARIANTS} className="mt-10">
               <SocialLinks />
             </motion.div>
           </motion.div>
