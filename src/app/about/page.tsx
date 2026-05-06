@@ -14,8 +14,8 @@ import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Container } from "../../components/Container";
 import { ContainerNarrow } from "../../components/ContainerNarrow";
-import { cn } from "../../lib/utils";
 import { LogosScroller } from "../../components/LogosScroller";
+import { DotBackground } from "../../components/DotBackground";
 
 export default function AboutPage() {
   return (
@@ -28,15 +28,7 @@ export default function AboutPage() {
         style={{ paddingTop: "var(--navbar-height)" }}
       >
         <section className="relative overflow-hidden py-[10%] md:py-[5%] mx-auto">
-          {/* Dot Background Layer */}
-          <div
-            className={cn(
-              "absolute inset-0 -z-10",
-              "[background-size:20px_20px]",
-              "[background-image:radial-gradient(var(--grey-color)_1px,transparent_1px)]"
-            )}
-          />
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[var(--background-color)] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,var(--background-color))] -z-10" />
+          <DotBackground />
 
           <Container>
             <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-12 items-center">

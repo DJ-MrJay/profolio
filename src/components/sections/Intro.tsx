@@ -1,22 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { cn } from "../../lib/utils";
 import { motion } from "framer-motion";
 import { ContainerNarrow } from "../ContainerNarrow";
+import { DotBackground } from "../DotBackground";
 
 export default function Intro() {
   return (
     <section id="intro" className="h-[calc(100vh-var(--navbar-height))]">
-      {/* Dot Background Layer */}
-      <div
-        className={cn(
-          "absolute inset-0 -z-10",
-          "[background-size:20px_20px]",
-          "[background-image:radial-gradient(var(--grey-color)_1px,transparent_1px)]"
-        )}
-      />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[var(--background-color)] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,var(--background-color))] -z-10" />
+      <DotBackground />
 
       {/* Content */}
       <ContainerNarrow className="h-full">

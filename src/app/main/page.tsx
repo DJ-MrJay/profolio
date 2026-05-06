@@ -8,23 +8,21 @@ import Footer from "../../components/Footer";
 import Contact from "../../components/sections/Contact";
 import { motion } from "framer-motion";
 
-export default function Home() {
+export default function MainPage() {
   return (
-    <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6 }}
-      >
-        <Navbar />
-        <main className="mt-20 scroll-smooth">
-          <Intro />
-          <Work />
-          <Articles />
-          <Contact />
-        </main>
-        <Footer />
-      </motion.div>
-    </>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <Navbar />
+      <main className="mt-20 scroll-smooth">
+        <Intro />
+        <Work />
+        <Articles />
+        <Contact />
+      </main>
+      <Footer />
+    </motion.div>
   );
 }

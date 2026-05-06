@@ -3,11 +3,13 @@
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import type { ReactNode } from "react";
 import { Github, ExternalLink } from "lucide-react";
+import { TAG_LINKS } from "@/data/tag-links";
 
 type WorkItemProps = {
   title: string;
-  description: React.ReactNode;
+  description: ReactNode;
   image: string;
   tags: string[];
   codeUrl?: string;
@@ -24,28 +26,8 @@ export default function WorkItem({
   liveUrl,
   reverse = false,
 }: WorkItemProps) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
-
-  const TAG_LINKS: Record<string, string> = {
-    'Next.js': 'https://nextjs.org/',
-    'TypeScript': 'https://www.typescriptlang.org/',
-    'Tailwind CSS': 'https://tailwindcss.com/',
-    'shadcn/ui': 'https://ui.shadcn.com/',
-    'Supabase': 'https://supabase.com/',
-    'React': 'https://react.dev/',
-    'React Native': 'https://reactnative.dev/',
-    'Expo': 'https://expo.dev/',
-    'GraphQL': 'https://graphql.org/',
-    'Redux': 'https://redux.js.org/',
-    'Ruby On Rails': 'https://rubyonrails.org/',
-    'Ruby': 'https://www.ruby-lang.org/',
-    'HTML5': 'https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5',
-    'CSS3': 'https://developer.mozilla.org/docs/Web/CSS',
-    'JavaScript': 'https://developer.mozilla.org/docs/Web/JavaScript',
-    'WordPress': 'https://wordpress.com/',
-    'PHP': 'https://www.php.net/',
-  };
 
   return (
     <motion.div

@@ -1,20 +1,19 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from "@vercel/analytics/next";
 
 const walsheim = localFont({
-  src: 'fonts/gt-walsheim-bold.woff',
-  variable: '--font-heading',
-})
+  src: "fonts/gt-walsheim-bold.woff",
+  variable: "--font-heading",
+});
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-primary",
 });
-
 
 export const metadata: Metadata = {
   title: "Professional Portfolio | Jonah Wambua",
