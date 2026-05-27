@@ -97,7 +97,7 @@ export const WORK_ITEMS: WorkItemData[] = [
       <>
         This Ruby on Rails budgeting app helps users take control of their
         finances with seamless transaction management, expense tracking, and
-        spending insights. It's part of my Remote Full Stack Web Development
+        spending insights. It&apos;s part of my Remote Full Stack Web Development
         Program at{" "}
         <InlineExternalLink href="https://www.microverse.org">
           Microverse
@@ -176,7 +176,7 @@ export const WORK_ITEMS: WorkItemData[] = [
         expertise, I built an elegant platform for SJZ Flowers showcasing
         fresh-cut flowers, export services, and sustainable farming. The site
         features seamless navigation, stunning imagery, and responsive design to
-        connect international buyers with Kenya's finest floral exports.
+        connect international buyers with Kenya&apos;s finest floral exports.
       </>
     ),
     image: "/assets/images/sjz-snap.jpg",
@@ -193,7 +193,7 @@ export const WORK_ITEMS: WorkItemData[] = [
           WordPress
         </InlineExternalLink>{" "}
         expertise, I delivered a compelling, robust site in three days—a
-        polished online presence showcasing the agency's services and portfolio.
+        polished online presence showcasing the agency&apos;s services and portfolio.
       </>
     ),
     image: "/assets/images/brand-champ.jpg",
