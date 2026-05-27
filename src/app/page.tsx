@@ -25,7 +25,7 @@ export default function HomePage() {
         {/* Background Image Layer */}
         <div
           id="home"
-          className="absolute inset-0 pointer-events-none hidden lg:block bg-[url('/assets/images/jay-portfolio.png')] bg-no-repeat bg-right-bottom bg-contain z-10"
+          className="absolute inset-0 pointer-events-none hidden lg:block bg-[url('/assets/images/mrjay-on-chair.png')] bg-no-repeat bg-right-bottom bg-contain z-10"
           style={{
             filter: "var(--image-filter)",
           }}
@@ -45,14 +45,12 @@ export default function HomePage() {
                   transition: { duration: 0.9, ease: "easeOut" },
                 }}
               >
-                <h1 className="leading-[1] lg:hidden">
-                  Full-Stack Software Developer.
-                </h1>
-                <div className="hidden lg:block space-y-0">
-                  <h1 className="leading-[1]">Full-Stack Software</h1>
-                  <h1 className="leading-[1]">Developer.</h1>
+                
+
+                <div className="">
+                  <h1 className="leading-tight">Full-Stack Software Developer.</h1>                  
                 </div>
-                <h2 className="leading-[1.2]">Graphic & UI/UX Designer.</h2>
+                <h2 className="leading-tight">Graphic & UI/UX Designer.</h2>
               </motion.div>
               <motion.div
                 initial={{ clipPath: "inset(0 100% 0 0)" }}

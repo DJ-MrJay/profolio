@@ -60,15 +60,15 @@ export const WORK_ITEMS: WorkItemData[] = [
     image: "/assets/images/portfolio-shot-2.png",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
     codeUrl: "https://github.com/DJ-MrJay/profolio",
-    liveUrl: "https://jonah-profolio.vercel.app/",
+    liveUrl: "https://mrjay.co.ke/",
     reverse: true,
   },
   {
     title: "Mix Streamer",
     description:
-      "Mix Streamer is a mobile first web application designed to deliver a seamless DJ mix streaming experience. Instead of relying on third party streaming APIs, it uses Google Drive as the audio source. Built with Next.js and TypeScript, the platform allows users to browse curated mixes, search across rich metadata, and enjoy uninterrupted playback through a persistent global player.",
+      "Mix Streamer is a mobile first web application designed to deliver a seamless DJ audio and video mix streaming. It uses Google Drive as the media source. Built with Next.js and TypeScript, the app allows users to search across rich metadata, and enjoy uninterrupted playback through a persistent global player.",
     image: "/assets/images/mix-streamer.jpg",
-    tags: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "shadcn/ui"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
     codeUrl: "https://github.com/DJ-MrJay/mix-streamer",
     liveUrl: "https://mix-streamer.vercel.app/",
   },
@@ -76,15 +76,13 @@ export const WORK_ITEMS: WorkItemData[] = [
     title: "Super Wheels Car Rentals",
     description: (
       <>
-        A dynamic web application built with a React front-end and a Ruby on
-        Rails back-end, streamlining the process of scheduling car test drives.
-        Developed as part of a collaborative effort at{" "}
+        A React/Rails web app for scheduling car test drives, built
+        collaboratively at{" "}
         <InlineExternalLink href="https://www.microverse.org">
           Microverse
         </InlineExternalLink>
-        , the project features a robust Rails API that provides endpoints for
-        managing cars, allowing users to create, retrieve, update, and delete
-        listings, as well as handling reservations and user authentication.
+        . It features a robust Rails API with full CRUD for car listings, plus
+        reservation and authentication management.
       </>
     ),
     image: "/assets/images/super-wheels.png",
@@ -97,17 +95,14 @@ export const WORK_ITEMS: WorkItemData[] = [
     title: "Money Matters",
     description: (
       <>
-        This Ruby on Rails budgeting app is a powerful mobile tool designed to
-        help users take control of their finances. It allows seamless
-        transaction management, enabling users to add expenses, categorize
-        spending, and gain valuable insights into their financial habits. I
-        developed this application as part of my Remote Full Stack Web
-        Development Program at{" "}
+        This Ruby on Rails budgeting app helps users take control of their
+        finances with seamless transaction management, expense tracking, and
+        spending insights. It's part of my Remote Full Stack Web Development
+        Program at{" "}
         <InlineExternalLink href="https://www.microverse.org">
           Microverse
         </InlineExternalLink>
-        , combining clean functionality with intuitive design to create a
-        practical solution for everyday budgeting.
+        .
       </>
     ),
     image: "/assets/images/money-matters.png",
@@ -117,8 +112,17 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Blog App",
-    description:
-      "A dynamic Ruby on Rails platform that empowers users to create, engage with, and interact through posts. With features like commenting and liking, it fosters a community-driven space for sharing ideas. I developed this application independently as part of my Remote Full Stack Web Development Program at Microverse, honing my skills in building robust, user-friendly web applications from the ground up.",
+    description: (
+      <>
+        A Ruby on Rails platform enabling users to create, comment on, and like
+        posts in a community-driven space. I built it independently during my
+        Remote Full Stack Web Development Program at{" "}
+        <InlineExternalLink href="https://www.microverse.org">
+          Microverse
+        </InlineExternalLink>
+        , sharpening my skills in building robust web applications.
+      </>
+    ),
     image: "/assets/images/blog-app.png",
     tags: ["Ruby", "HTML5", "CSS3", "JavaScript"],
     codeUrl: "https://github.com/DJ-MrJay/My-Blog-App",
@@ -146,16 +150,13 @@ export const WORK_ITEMS: WorkItemData[] = [
     title: "Bookstore CMS",
     description: (
       <>
-        An interactive web application designed to organize and manage your
-        personal book collection with ease. Built with React and Redux, the app
-        allows users to dynamically display their book lists while seamlessly
-        adding or removing titles. I developed this project independently as
-        part of my Remote Full Stack Web Development Program at{" "}
+        A React/Redux app for organizing your personal book collection with
+        dynamic display and add/remove functionality. Built independently during
+        my Remote Full Stack Web Development Program at{" "}
         <InlineExternalLink href="https://www.microverse.org">
           Microverse
         </InlineExternalLink>
-        , refining my skills in state management and responsive front-end
-        development.
+        , refining my state management and front-end skills.
       </>
     ),
     image: "/assets/images/bookstore-CMS.png",
@@ -168,15 +169,14 @@ export const WORK_ITEMS: WorkItemData[] = [
     title: "SJZ Flowers",
     description: (
       <>
-        Leveraging my expertise in{" "}
+        Leveraging my{" "}
         <InlineExternalLink href="https://www.wordpress.com">
           WordPress
         </InlineExternalLink>{" "}
-        development, I created an elegant and functional platform that
-        highlights SJZ Flowers&apos; diverse catalogue of fresh-cut flowers,
-        export services, and sustainable farming practices. The website features
-        seamless navigation, stunning floral imagery, and responsive design to
-        connect international buyers with Kenya&apos;s finest floral exports.
+        expertise, I built an elegant platform for SJZ Flowers showcasing
+        fresh-cut flowers, export services, and sustainable farming. The site
+        features seamless navigation, stunning imagery, and responsive design to
+        connect international buyers with Kenya's finest floral exports.
       </>
     ),
     image: "/assets/images/sjz-snap.jpg",
@@ -187,15 +187,13 @@ export const WORK_ITEMS: WorkItemData[] = [
     title: "Brandchamp Marketing",
     description: (
       <>
-        A website for an innovative brand marketing agency specializing in
-        identity services. Drawing on my deep expertise in{" "}
+        A website for a brand marketing agency specializing in identity
+        services. Leveraging my{" "}
         <InlineExternalLink href="https://www.wordpress.com">
           WordPress
         </InlineExternalLink>{" "}
-        development, I delivered a visually compelling and functionally robust
-        website within an impressive three-day timeframe. The result is a
-        polished online presence that effectively showcases the agency&apos;s
-        services and portfolio.
+        expertise, I delivered a compelling, robust site in three days—a
+        polished online presence showcasing the agency's services and portfolio.
       </>
     ),
     image: "/assets/images/brand-champ.jpg",
@@ -207,15 +205,13 @@ export const WORK_ITEMS: WorkItemData[] = [
     title: "Neo Lite Energies",
     description: (
       <>
-        I had the privilege of creating a website for Neo Lite Energies, a
-        renowned leader in the Oil and Gas industry. Leveraging my deep
-        expertise in{" "}
+        I created a website for Neo Lite Energies, a leader in Oil and Gas.
+        Leveraging my{" "}
         <InlineExternalLink href="https://www.wordpress.com">
           WordPress
-        </InlineExternalLink>
-        , I successfully developed and launched the website within just two
-        days. The result was a professional CMS-based website that is easy for
-        the client to update and manage.
+        </InlineExternalLink>{" "}
+        expertise, I launched it in just two days—a professional CMS-based site
+        the client can easily update.
       </>
     ),
     image: "/assets/images/neolite.jpg",
