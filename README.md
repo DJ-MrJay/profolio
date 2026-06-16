@@ -46,7 +46,33 @@ cd next-portfolio
 npm install
 ```
 
-### 3. Run the development server
+### 3. Configure contact email
+
+Create a local `.env.local` file with your SMTP settings before testing the
+contact form.
+
+```bash
+SMTP_HOST=mail.mrjay.co.ke
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=contact@mrjay.co.ke
+SMTP_PASS=your-smtp-password
+CONTACT_EMAIL_TO=contact@mrjay.co.ke
+CONTACT_EMAIL_FROM=contact@mrjay.co.ke
+```
+
+If you use a full SMTP connection string instead, set `SMTP_URL` instead of
+`SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, and `SMTP_PASS`.
+
+reCAPTCHA v3 is optional. To enable it, add both keys:
+
+```bash
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your-site-key
+RECAPTCHA_SECRET_KEY=your-secret-key
+RECAPTCHA_MIN_SCORE=0.5
+```
+
+### 4. Run the development server
 
 ```bash
 npm run dev

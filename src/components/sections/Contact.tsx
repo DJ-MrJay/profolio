@@ -6,7 +6,7 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { ContainerNarrow } from "../ContainerNarrow";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "../Container";
 
 type FormValues = {
@@ -15,13 +15,74 @@ type FormValues = {
   message: string;
 };
 
-const CONTACT_FORM_ENDPOINT = "https://formcarry.com/s/MTj757WTopu";
+const CONTACT_FORM_ENDPOINT = "/api/contact";
+const RECAPTCHA_ACTION = "contact_submit";
+const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+const RECAPTCHA_SCRIPT_ID = "google-recaptcha-v3";
+const MAX_RECAPTCHA_SUBMISSION_ATTEMPTS = 3;
+let recaptchaScriptPromise: Promise<void> | undefined;
+
+type RecaptchaWindow = Window & {
+  grecaptcha?: {
+    ready: (callback: () => void) => void;
+    execute: (
+      siteKey: string,
+      options: { action: string }
+    ) => Promise<string>;
+  };
+};
 
 const capitalizeEachWord = (value: string) => {
   return value
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(" ");
+};
+
+const loadRecaptchaScript = async () => {
+  if (!RECAPTCHA_SITE_KEY || typeof window === "undefined") {
+    return;
+  }
+
+  if ((window as RecaptchaWindow).grecaptcha) {
+    return;
+  }
+
+  recaptchaScriptPromise ??= new Promise<void>((resolve, reject) => {
+    const script = document.createElement("script");
+    script.id = RECAPTCHA_SCRIPT_ID;
+    script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.defer = true;
+    script.addEventListener("load", () => resolve(), { once: true });
+    script.addEventListener("error", () => reject(), { once: true });
+    document.head.appendChild(script);
+  });
+
+  await recaptchaScriptPromise;
+};
+
+const getRecaptchaToken = async () => {
+  if (!RECAPTCHA_SITE_KEY || typeof window === "undefined") {
+    return undefined;
+  }
+
+  await loadRecaptchaScript();
+
+  const { grecaptcha } = window as RecaptchaWindow;
+
+  if (!grecaptcha) {
+    return undefined;
+  }
+
+  return new Promise<string>((resolve, reject) => {
+    grecaptcha.ready(() => {
+      grecaptcha
+        .execute(RECAPTCHA_SITE_KEY, { action: RECAPTCHA_ACTION })
+        .then(resolve)
+        .catch(reject);
+    });
+  });
 };
 
 export default function ContactSection() {
@@ -35,18 +96,34 @@ export default function ContactSection() {
 
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
+  useEffect(() => {
+    void loadRecaptchaScript();
+  }, []);
+
   const onSubmit = async (data: FormValues) => {
     try {
-      const res = await fetch(CONTACT_FORM_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(data),
-      });
+      let res: Response | undefined;
+      const maxAttempts = RECAPTCHA_SITE_KEY
+        ? MAX_RECAPTCHA_SUBMISSION_ATTEMPTS
+        : 1;
 
-      if (res.ok) {
+      for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+        const recaptchaToken = await getRecaptchaToken();
+        res = await fetch(CONTACT_FORM_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({ ...data, recaptchaToken }),
+        });
+
+        if (res.status !== 403) {
+          break;
+        }
+      }
+
+      if (res?.ok) {
         setStatus("success");
         reset();
       } else {
