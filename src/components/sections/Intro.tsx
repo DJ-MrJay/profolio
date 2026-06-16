@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
-import { ArrowRight, Code2, Layers3, Palette } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Code2, Layers3, Palette, ShieldCheck } from "lucide-react";
 import { Container } from "../Container";
 import { LogosScroller } from "../LogosScroller";
+import { revealMotion } from "@/lib/motion";
 
 const CAPABILITIES = [
   {
@@ -27,37 +28,67 @@ const CAPABILITIES = [
   },
 ] as const;
 
+const VALUES = [
+  "Clear user flows before visual polish",
+  "Maintainable code over fragile demos",
+  "Brand systems that survive real content",
+] as const;
+
 export default function Intro() {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <section id="intro" className="py-20 md:py-28">
       <Container>
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
-          <div className="max-w-xl">
-            <p className="eyebrow">Design-led engineering</p>
+        <div className="grid gap-10 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
+          <div className="max-w-xl lg:sticky lg:top-[calc(var(--navbar-height)+32px)]">
+            <p className="chapter-kicker">Chapter 01 / About</p>
             <motion.h2
               className="mt-4"
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.32, ease: "easeOut" }}
-              viewport={{ once: true, amount: 0.7 }}
+              {...revealMotion(Boolean(shouldReduceMotion), 0, 18, 0.7)}
             >
               I turn rough ideas into polished, usable web experiences.
             </motion.h2>
+            <motion.p
+              className="mt-5 text-lg leading-8 text-[var(--text-muted)]"
+              {...revealMotion(Boolean(shouldReduceMotion), 0.05, 18, 0.6)}
+            >
+              My path started in systems and client operations before moving
+              deeper into product interfaces, full-stack development, and visual
+              identity. That background keeps my work grounded in what teams
+              can actually ship, maintain, and explain.
+            </motion.p>
           </div>
 
           <div className="min-w-0 space-y-6">
             <motion.p
               className="section-copy"
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.32, ease: "easeOut", delay: 0.05 }}
-              viewport={{ once: true, amount: 0.7 }}
+              {...revealMotion(Boolean(shouldReduceMotion), 0.08, 18, 0.7)}
             >
-              My work sits at the intersection of full-stack development,
-              interface design, and brand communication. I care about fast
-              pages, readable systems, accessible interactions, and visuals that
+              Today my work sits at the intersection of full-stack development,
+              UI/UX design, and graphic design. I care about fast pages,
+              readable systems, accessible interactions, and visuals that
               support the product instead of decorating it.
             </motion.p>
+
+            <motion.div
+              className="grid gap-3 rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] p-5 shadow-[0_14px_40px_var(--shadow-color)] sm:grid-cols-3"
+              {...revealMotion(Boolean(shouldReduceMotion), 0.1, 18, 0.5)}
+            >
+              {VALUES.map((value) => (
+                <div key={value} className="flex gap-3">
+                  <ShieldCheck
+                    aria-hidden="true"
+                    size={18}
+                    className="mt-1 shrink-0 text-[var(--accent-color)]"
+                    strokeWidth={1.8}
+                  />
+                  <p className="text-sm font-bold leading-6 text-[var(--text-color)]">
+                    {value}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
 
             <div className="grid gap-4 md:grid-cols-3">
               {CAPABILITIES.map((item, index) => {
@@ -66,17 +97,15 @@ export default function Intro() {
                 return (
                   <motion.article
                     key={item.title}
-                    className="rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] p-5 shadow-[0_14px_40px_var(--shadow-color)]"
-                    initial={{ opacity: 0, y: 18 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.28,
-                      ease: "easeOut",
-                      delay: index * 0.04,
-                    }}
-                    viewport={{ once: true, amount: 0.6 }}
+                    className="group rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] p-5 shadow-[0_14px_40px_var(--shadow-color)] transition duration-200 hover:-translate-y-1 hover:border-[var(--accent-color)] motion-reduce:hover:translate-y-0"
+                    {...revealMotion(
+                      Boolean(shouldReduceMotion),
+                      index * 0.04,
+                      18,
+                      0.6
+                    )}
                   >
-                    <div className="mb-5 inline-flex size-11 items-center justify-center rounded-[8px] bg-[var(--surface-muted)] text-[var(--accent-color)]">
+                    <div className="mb-5 inline-flex size-11 items-center justify-center rounded-[8px] bg-[var(--surface-muted)] text-[var(--accent-color)] transition-colors group-hover:bg-[var(--accent-color)] group-hover:text-[var(--accent-foreground)]">
                       <Icon aria-hidden="true" size={20} strokeWidth={1.8} />
                     </div>
                     <h3 className="text-xl">{item.title}</h3>
@@ -88,7 +117,10 @@ export default function Intro() {
               })}
             </div>
 
-            <div className="flex flex-col gap-5 border-t border-[var(--border-color)] pt-6 sm:flex-row sm:items-center sm:justify-between">
+            <motion.div
+              className="flex flex-col gap-5 border-t border-[var(--border-color)] pt-6 sm:flex-row sm:items-center sm:justify-between"
+              {...revealMotion(Boolean(shouldReduceMotion), 0.04, 14, 0.6)}
+            >
               <p className="max-w-xl text-sm text-[var(--text-muted)]">
                 Tools and frameworks I use regularly across client work,
                 product experiments, and content-driven sites.
@@ -97,7 +129,7 @@ export default function Intro() {
                 Read the details
                 <ArrowRight aria-hidden="true" size={16} />
               </Link>
-            </div>
+            </motion.div>
 
             <div className="min-w-0 rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)]">
               <LogosScroller />

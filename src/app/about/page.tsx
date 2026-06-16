@@ -64,10 +64,12 @@ export default function AboutPage() {
       <main style={{ paddingTop: "var(--navbar-height)" }}>
         <section className="border-b border-[var(--border-color)] py-16 md:py-24">
           <Container>
-            <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
+            <div className="grid gap-10 lg:grid-cols-[1.5fr_1fr] lg:items-end">
               <div>
                 <p className="eyebrow">About Jonah</p>
-                <h1 className="mt-4">A developer shaped by design, systems, and client work.</h1>
+                <h1 className="mt-4">
+                  A developer shaped by design, systems, and client work.
+                </h1>
                 <div className="mt-6 space-y-4 text-lg text-[var(--text-muted)]">
                   <p>
                     My programming journey started in 2008 with a patient
@@ -98,14 +100,17 @@ export default function AboutPage() {
                     Request resume
                     <Download aria-hidden="true" size={16} />
                   </Link>
-                  <Link href="/#work" className="btn-rounded inline-flex items-center gap-2">
+                  <Link
+                    href="/#work"
+                    className="btn-rounded inline-flex items-center gap-2"
+                  >
                     See selected work
                     <ArrowRight aria-hidden="true" size={16} />
                   </Link>
                 </div>
               </div>
 
-              <div className="relative min-h-[520px] overflow-hidden rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-muted)]">
+              <div className="relative h-full overflow-hidden">
                 <Image
                   src="/assets/images/jay-standing.png"
                   alt="Jonah Wambua standing"
@@ -145,7 +150,10 @@ export default function AboutPage() {
                     <AccordionContent className="pb-5">
                       <ul className="grid gap-3 text-sm leading-6 text-[var(--text-muted)]">
                         {item.bullets.map((bullet) => (
-                          <li key={bullet} className="border-l-2 border-[var(--accent-color)] pl-4">
+                          <li
+                            key={bullet}
+                            className="border-l-2 border-[var(--accent-color)] pl-4"
+                          >
                             {bullet}
                           </li>
                         ))}
@@ -156,18 +164,21 @@ export default function AboutPage() {
               </Accordion>
             </div>
 
-            <div className="mt-14 grid gap-6 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+            <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:items-center">
               <div>
                 <p className="eyebrow">Skills</p>
                 <h2 className="mt-4">Tools I reach for often.</h2>
               </div>
-              <div className="rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)]">
+              <div className="overflow-hidden rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)]">
                 <LogosScroller />
               </div>
             </div>
 
             <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-[var(--border-color)] pt-8">
-              <Link href="/#intro" className="btn-rounded inline-flex items-center gap-2">
+              <Link
+                href="/#intro"
+                className="btn-rounded inline-flex items-center gap-2"
+              >
                 <ArrowLeft aria-hidden="true" size={16} />
                 Back home
               </Link>

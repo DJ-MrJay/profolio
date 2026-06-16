@@ -1,16 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 import { ExternalLink, Github } from "lucide-react";
 import { TAG_LINKS } from "@/data/tag-links";
+import { revealMotion } from "@/lib/motion";
 
 type WorkItemProps = {
   title: string;
   description: ReactNode;
   image: string;
   tags: string[];
+  category: string;
+  role: string;
+  outcome: string;
   codeUrl?: string;
   liveUrl?: string;
   reverse?: boolean;
@@ -22,33 +26,60 @@ export default function WorkItem({
   description,
   image,
   tags,
+  category,
+  role,
+  outcome,
   codeUrl,
   liveUrl,
   index = 0,
 }: WorkItemProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.article
-      className="group flex h-full flex-col overflow-hidden rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] shadow-[0_16px_42px_var(--shadow-color)]"
-      initial={{ opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, ease: "easeOut", delay: (index % 3) * 0.04 }}
-      viewport={{ once: true, amount: 0.25 }}
+      className="group flex h-full flex-col overflow-hidden rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] shadow-[0_16px_42px_var(--shadow-color)] transition duration-200 hover:-translate-y-1 hover:border-[var(--accent-color)] motion-reduce:hover:translate-y-0"
+      {...revealMotion(Boolean(shouldReduceMotion), (index % 2) * 0.05, 22, 0.25)}
     >
-      <div className="relative aspect-[4/3] overflow-hidden bg-[var(--background-color)]">
+      <div className="relative aspect-[16/9] overflow-hidden bg-[var(--background-color)]">
         <Image
           src={image}
           alt={`${title} project preview`}
           fill
-          sizes="(min-width: 1280px) 31vw, (min-width: 768px) 47vw, 92vw"
-          className="object-cover object-top transition duration-300 group-hover:scale-[1.025]"
+          sizes="(min-width: 1024px) 45vw, (min-width: 768px) 47vw, 92vw"
+          className="object-cover object-top transition duration-300 group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
         />
-        <div className="absolute left-3 top-3 rounded-[8px] border border-white/40 bg-black/60 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-white backdrop-blur-sm">
-          Case study
+        <div className="absolute left-3 top-3 rounded-[8px] border border-white/40 bg-black/65 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-white backdrop-blur-sm">
+          {category}
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-5">
-        <h3 className="text-2xl">{title}</h3>
+      <div className="flex flex-1 flex-col p-5 md:p-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+          <h3 className="text-2xl">{title}</h3>
+          <span className="w-fit rounded-full border border-[var(--border-color)] px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--text-muted)]">
+            Case study
+          </span>
+        </div>
+
+        <div className="mt-5 grid gap-3 text-sm sm:grid-cols-2">
+          <div className="rounded-[8px] bg-[var(--surface-muted)] p-3">
+            <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--text-muted)]">
+              Role
+            </p>
+            <p className="mt-1 font-bold leading-6 text-[var(--text-color)]">
+              {role}
+            </p>
+          </div>
+          <div className="rounded-[8px] bg-[var(--surface-muted)] p-3">
+            <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--text-muted)]">
+              Outcome
+            </p>
+            <p className="mt-1 font-bold leading-6 text-[var(--text-color)]">
+              {outcome}
+            </p>
+          </div>
+        </div>
+
         <div className="mt-3 text-sm leading-6 text-[var(--text-muted)] [&_a]:font-semibold [&_a]:text-[var(--blue-accent)] [&_a]:underline-offset-4 [&_a:hover]:underline">
           {description}
         </div>

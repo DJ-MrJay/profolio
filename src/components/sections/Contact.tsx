@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Container } from "../Container";
-import { ArrowRight, Mail, MapPin } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { revealMotion } from "@/lib/motion";
 
 type FormValues = {
   fullname: string;
@@ -15,6 +17,12 @@ type FormValues = {
 
 const CONTACT_FORM_ENDPOINT = "https://formcarry.com/s/MTj757WTopu";
 
+const PROJECT_FITS = [
+  "Responsive portfolio and business websites",
+  "Product interfaces and design-to-code builds",
+  "CMS-backed launches and brand systems",
+] as const;
+
 const capitalizeEachWord = (value: string) => {
   return value
     .split(" ")
@@ -23,6 +31,7 @@ const capitalizeEachWord = (value: string) => {
 };
 
 export default function ContactSection() {
+  const shouldReduceMotion = useReducedMotion();
   const {
     register,
     handleSubmit,
@@ -64,22 +73,47 @@ export default function ContactSection() {
     >
       <Container>
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <p className="eyebrow">Contact</p>
-            <h2 className="mt-4">Have a build, redesign, or product idea?</h2>
-            <p className="section-copy mt-5">
-              Send the context and I will get back with a practical next step.
-              I am best suited for responsive websites, product interfaces,
-              CMS-backed launches, and design-to-code implementation.
-            </p>
+          <div className="lg:sticky lg:top-[calc(var(--navbar-height)+32px)] lg:self-start">
+            <p className="chapter-kicker">Final chapter / Contact</p>
+            <motion.h2
+              className="mt-4"
+              {...revealMotion(Boolean(shouldReduceMotion), 0, 18, 0.7)}
+            >
+              Have a build, redesign, or product idea?
+            </motion.h2>
+            <motion.p
+              className="section-copy mt-5"
+              {...revealMotion(Boolean(shouldReduceMotion), 0.05, 18, 0.7)}
+            >
+              Send the context and I will respond with a practical next step:
+              scope, timeline, collaboration fit, or a better direction if the
+              project needs something else first.
+            </motion.p>
+
+            <motion.ul
+              className="mt-7 grid gap-3"
+              {...revealMotion(Boolean(shouldReduceMotion), 0.08, 18, 0.6)}
+            >
+              {PROJECT_FITS.map((item) => (
+                <li key={item} className="flex gap-3 text-sm font-bold">
+                  <CheckCircle2
+                    aria-hidden="true"
+                    size={18}
+                    className="mt-0.5 shrink-0 text-[var(--accent-color)]"
+                    strokeWidth={1.8}
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </motion.ul>
 
             <div className="mt-8 grid gap-3 text-sm text-[var(--text-muted)]">
               <a
-                href="mailto:hello@mrjay.co.ke"
+                href="mailto:contact@mrjay.co.ke"
                 className="inline-flex w-fit items-center gap-3 rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] px-4 py-3 transition-colors hover:border-[var(--accent-color)] hover:text-[var(--text-color)]"
               >
                 <Mail aria-hidden="true" size={18} className="text-[var(--accent-color)]" />
-                hello@mrjay.co.ke
+                contact@mrjay.co.ke
               </a>
               <div className="inline-flex w-fit items-center gap-3 rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] px-4 py-3">
                 <MapPin aria-hidden="true" size={18} className="text-[var(--accent-color)]" />
@@ -88,8 +122,10 @@ export default function ContactSection() {
             </div>
           </div>
 
-          <form
+          <motion.form
             onSubmit={handleSubmit(onSubmit)}
+            aria-busy={isSubmitting}
+            {...revealMotion(Boolean(shouldReduceMotion), 0.08, 18, 0.45)}
             className="rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] p-5 shadow-[0_16px_42px_var(--shadow-color)] md:p-7"
           >
             <div className="grid gap-5 md:grid-cols-2">
@@ -117,7 +153,7 @@ export default function ContactSection() {
                   })}
                 />
                 {errors.fullname && (
-                  <p id="fullname-error" className="mt-2 text-sm text-[#b42318]">
+                  <p id="fullname-error" className="mt-2 text-sm text-[var(--error-color)]">
                     {errors.fullname.message}
                   </p>
                 )}
@@ -143,7 +179,7 @@ export default function ContactSection() {
                   })}
                 />
                 {errors.email && (
-                  <p id="email-error" className="mt-2 text-sm text-[#b42318]">
+                  <p id="email-error" className="mt-2 text-sm text-[var(--error-color)]">
                     {errors.email.message}
                   </p>
                 )}
@@ -169,7 +205,7 @@ export default function ContactSection() {
                 })}
               />
               {errors.message && (
-                <p id="message-error" className="mt-2 text-sm text-[#b42318]">
+                <p id="message-error" className="mt-2 text-sm text-[var(--error-color)]">
                   {errors.message.message}
                 </p>
               )}
@@ -192,17 +228,17 @@ export default function ContactSection() {
 
             <div className="mt-5 min-h-6 text-sm" role="status" aria-live="polite">
               {status === "success" && (
-                <p className="text-[#027a48]">
+                <p className="text-[var(--success-color)]">
                   Thank you. Your message has been sent.
                 </p>
               )}
               {status === "error" && (
-                <p className="text-[#b42318]">
+                <p className="text-[var(--error-color)]">
                   Something went wrong. Please try again later.
                 </p>
               )}
             </div>
-          </form>
+          </motion.form>
         </div>
       </Container>
     </section>

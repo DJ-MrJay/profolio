@@ -5,6 +5,9 @@ export type WorkItemData = {
   description: ReactNode;
   image: string;
   tags: string[];
+  category: string;
+  role: string;
+  outcome: string;
   codeUrl?: string;
   liveUrl?: string;
   reverse?: boolean;
@@ -34,6 +37,9 @@ function InlineExternalLink({
 export const WORK_ITEMS: WorkItemData[] = [
   {
     title: "This Portfolio",
+    category: "Personal brand",
+    role: "Design, front-end, content system",
+    outcome: "A motion-led portfolio system for work, writing, and client inquiries.",
     description: (
       <>
         This portfolio showcases a collection of my projects, highlighting my
@@ -65,8 +71,11 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Mix Streamer",
+    category: "Product experiment",
+    role: "Product UI, Next.js build, media UX",
+    outcome: "A mobile-first streaming interface with search and persistent playback.",
     description:
-      "Mix Streamer is a mobile first web application designed to deliver a seamless DJ audio and video mix streaming. It uses Google Drive as the media source. Built with Next.js and TypeScript, the app allows users to search across rich metadata, and enjoy uninterrupted playback through a persistent global player.",
+      "Mix Streamer is a mobile-first web application designed to deliver seamless DJ audio and video mix streaming. It uses Google Drive as the media source, lets users search across rich metadata, and supports uninterrupted playback through a persistent global player.",
     image: "/assets/images/mix-streamer.jpg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
     codeUrl: "https://github.com/DJ-MrJay/mix-streamer",
@@ -74,6 +83,9 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Super Wheels Car Rentals",
+    category: "Full-stack app",
+    role: "React front-end, Rails API collaboration",
+    outcome: "A reservation workflow for browsing cars and scheduling test drives.",
     description: (
       <>
         A React/Rails web app for scheduling car test drives, built
@@ -93,6 +105,9 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Money Matters",
+    category: "Finance app",
+    role: "Rails product build",
+    outcome: "A budgeting flow for categories, transactions, and expense visibility.",
     description: (
       <>
         This Ruby on Rails budgeting app helps users take control of their
@@ -112,6 +127,9 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Blog App",
+    category: "Content platform",
+    role: "Rails architecture, CRUD flows",
+    outcome: "A community-style publishing app with posts, comments, and likes.",
     description: (
       <>
         A Ruby on Rails platform enabling users to create, comment on, and like
@@ -130,6 +148,9 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Phil Logistics",
+    category: "Client website",
+    role: "WordPress design and deployment",
+    outcome: "A three-day CMS launch for a logistics and customs brokerage firm.",
     description: (
       <>
         I was tasked with creating a website for a logistics firm that focuses
@@ -148,6 +169,9 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Bookstore CMS",
+    category: "Front-end app",
+    role: "React, Redux, interaction design",
+    outcome: "A collection-management interface for adding and organizing books.",
     description: (
       <>
         A React/Redux app for organizing your personal book collection with
@@ -167,6 +191,9 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "SJZ Flowers",
+    category: "Export business site",
+    role: "WordPress UX and visual direction",
+    outcome: "A responsive CMS site for floral products, export services, and sourcing.",
     description: (
       <>
         Leveraging my{" "}
@@ -185,6 +212,9 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Brandchamp Marketing",
+    category: "Agency website",
+    role: "WordPress design, identity support",
+    outcome: "A polished web presence for services, positioning, and credibility.",
     description: (
       <>
         A website for a brand marketing agency specializing in identity
@@ -192,7 +222,7 @@ export const WORK_ITEMS: WorkItemData[] = [
         <InlineExternalLink href="https://www.wordpress.com">
           WordPress
         </InlineExternalLink>{" "}
-        expertise, I delivered a compelling, robust site in three days—a
+        expertise, I delivered a compelling, robust site in three days - a
         polished online presence showcasing the agency&apos;s services and portfolio.
       </>
     ),
@@ -203,6 +233,9 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Neo Lite Energies",
+    category: "Energy company site",
+    role: "WordPress build and launch",
+    outcome: "A client-managed CMS site for an oil and gas company.",
     description: (
       <>
         I created a website for Neo Lite Energies, a leader in Oil and Gas.
@@ -210,7 +243,7 @@ export const WORK_ITEMS: WorkItemData[] = [
         <InlineExternalLink href="https://www.wordpress.com">
           WordPress
         </InlineExternalLink>{" "}
-        expertise, I launched it in just two days—a professional CMS-based site
+        expertise, I launched it in just two days - a professional CMS-based site
         the client can easily update.
       </>
     ),

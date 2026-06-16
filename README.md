@@ -6,7 +6,7 @@ This is a modern portfolio website, showcasing my skills, projects, and professi
 
 ## 🔗 Live Demo
 
-[Visit the live site](https://jonah-profolio.vercel.app/)  
+[Visit the live site](https://mrjay.co.ke/)  
 
 ---
 

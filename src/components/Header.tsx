@@ -6,7 +6,7 @@ import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Container } from "./Container";
-import { AnimatePresence, easeInOut, motion } from "framer-motion";
+import { AnimatePresence, easeInOut, motion, useReducedMotion } from "framer-motion";
 import SocialLinks from "./SocialLinks";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -77,6 +77,7 @@ export default function Navbar() {
   const [activeHash, setActiveHash] = useState("");
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setMounted(true);
@@ -97,6 +98,36 @@ export default function Navbar() {
     return () => window.removeEventListener("hashchange", updateActiveHash);
   }, [pathname]);
 
+  useEffect(() => {
+    if (pathname !== "/" && pathname !== "/main") {
+      return;
+    }
+
+    const sections = NAV_LINKS.map((link) => {
+      const hash = getLinkHash(link.href);
+      return hash ? document.querySelector(hash) : null;
+    }).filter((section): section is Element => Boolean(section));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleEntry?.target.id) {
+          setActiveHash(`#${visibleEntry.target.id}`);
+        }
+      },
+      {
+        rootMargin: "-35% 0px -50% 0px",
+        threshold: [0.15, 0.35, 0.6],
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [pathname]);
+
   const toggleTheme = useCallback(() => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark");
   }, [resolvedTheme, setTheme]);
@@ -104,6 +135,21 @@ export default function Navbar() {
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
 
   return (
     <motion.header
@@ -188,10 +234,11 @@ export default function Navbar() {
           <motion.div
             id="mobile-menu"
             key="mobile-menu"
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={MENU_VARIANTS}
+            initial={shouldReduceMotion ? false : "initial"}
+            animate={shouldReduceMotion ? { opacity: 1, y: 0 } : "animate"}
+            exit={shouldReduceMotion ? { opacity: 0 } : "exit"}
+            variants={shouldReduceMotion ? undefined : MENU_VARIANTS}
+            transition={shouldReduceMotion ? { duration: 0 } : undefined}
             className="mx-[5vw] mt-3 flex flex-col gap-2 rounded-[8px] border border-[var(--border-color)] p-4 shadow-2xl md:hidden"
             style={{
               backgroundColor: "var(--surface-color)",
@@ -201,7 +248,7 @@ export default function Navbar() {
             {NAV_LINKS.map((link) => (
               <motion.div
                 key={link.href}
-                variants={MENU_ITEM_VARIANTS}
+                variants={shouldReduceMotion ? undefined : MENU_ITEM_VARIANTS}
               >
                 <Link
                   href={link.href}
@@ -218,7 +265,7 @@ export default function Navbar() {
             ))}
 
             <motion.div
-              variants={MENU_ITEM_VARIANTS}
+              variants={shouldReduceMotion ? undefined : MENU_ITEM_VARIANTS}
             >
               <Link
                 href="/#contact"
@@ -230,7 +277,10 @@ export default function Navbar() {
               </Link>
             </motion.div>
 
-            <motion.div variants={MENU_ITEM_VARIANTS} className="mt-4">
+            <motion.div
+              variants={shouldReduceMotion ? undefined : MENU_ITEM_VARIANTS}
+              className="mt-4"
+            >
               <SocialLinks />
             </motion.div>
           </motion.div>
