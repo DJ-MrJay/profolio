@@ -5,24 +5,17 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="py-10">
+    <footer className="border-t border-[var(--border-color)] py-8">
       <Container>
         <div
-          className="flex flex-wrap gap-4 justify-center md:justify-between items-center text-center"
-          style={{ color: "var(--shade-500)" }}
+          className="flex flex-wrap items-center justify-center gap-5 text-center md:justify-between"
+          style={{ color: "var(--text-muted)" }}
         >
-          {/* Left Text */}
           <div className="text-sm">
-            <p>
-              ©2015 - {year}. Developed with{" "}
-              <span style={{ color: "magenta" }}>♥</span> by yours truly!
-            </p>
+            <p>Copyright 2015 - {year}. Designed and developed by Jonah Wambua.</p>
           </div>
 
-          {/* Social Icons */}
-          <div>
-            <SocialLinks />
-          </div>
+          <SocialLinks />
         </div>
       </Container>
     </footer>

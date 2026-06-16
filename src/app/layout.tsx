@@ -1,22 +1,17 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
+
 const walsheim = localFont({
   src: "fonts/gt-walsheim-bold.woff",
   variable: "--font-heading",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-primary",
-});
-
 export const metadata: Metadata = {
-  title: "Professional Portfolio | Jonah Wambua",
+  title: "Jonah Wambua | Full-Stack Developer & Designer",
   description:
-    "Responsive professional portfolio website showcasing my projects, skills, and experience. Built with Next.js, Tailwind, and shadcn",
+    "Portfolio of Jonah Wambua, a Nairobi-based full-stack developer and UI/UX designer building responsive websites, product interfaces, and brand systems.",
 };
 
 export default function RootLayout({
@@ -28,14 +23,8 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${walsheim.variable}`}
+      className={walsheim.variable}
     >
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-        />
-      </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}

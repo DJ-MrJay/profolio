@@ -1,10 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { Github, ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { TAG_LINKS } from "@/data/tag-links";
 
 type WorkItemProps = {
@@ -15,6 +14,7 @@ type WorkItemProps = {
   codeUrl?: string;
   liveUrl?: string;
   reverse?: boolean;
+  index?: number;
 };
 
 export default function WorkItem({
@@ -24,79 +24,66 @@ export default function WorkItem({
   tags,
   codeUrl,
   liveUrl,
-  reverse = false,
+  index = 0,
 }: WorkItemProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
-
   return (
-    <motion.div
-      ref={ref}
-      className={`flex flex-col md:flex-row ${
-        reverse ? "md:flex-row-reverse" : ""
-      } gap-6 md:gap-12`}
-      initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : {}}
-      transition={{ duration: 1 }}
+    <motion.article
+      className="group flex h-full flex-col overflow-hidden rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] shadow-[0_16px_42px_var(--shadow-color)]"
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, ease: "easeOut", delay: (index % 3) * 0.04 }}
+      viewport={{ once: true, amount: 0.25 }}
     >
-      {/* Image */}
-      <div className="w-full md:w-1/2 group overflow-hidden rounded-xl">
+      <div className="relative aspect-[4/3] overflow-hidden bg-[var(--background-color)]">
         <Image
           src={image}
-          alt={title}
-          width={1200}
-          height={800}
-          className="w-full h-auto rounded-xl object-cover object-top transition duration-1000 filter brightness-100 grayscale-0 md:brightness-[75%] md:grayscale md:hover:brightness-100 md:hover:grayscale-0 cursor-pointer"
+          alt={`${title} project preview`}
+          fill
+          sizes="(min-width: 1280px) 31vw, (min-width: 768px) 47vw, 92vw"
+          className="object-cover object-top transition duration-300 group-hover:scale-[1.025]"
         />
+        <div className="absolute left-3 top-3 rounded-[8px] border border-white/40 bg-black/60 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-white backdrop-blur-sm">
+          Case study
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="w-full md:w-1/2 flex flex-col justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.8 }}
-        >
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </motion.div>
+      <div className="flex flex-1 flex-col p-5">
+        <h3 className="text-2xl">{title}</h3>
+        <div className="mt-3 text-sm leading-6 text-[var(--text-muted)] [&_a]:font-semibold [&_a]:text-[var(--blue-accent)] [&_a]:underline-offset-4 [&_a:hover]:underline">
+          {description}
+        </div>
 
-        {/* Tags */}
-        <ul
-          className="flex flex-wrap items-center gap-1 uppercase tracking-widest mt-4"
-          style={{ color: "var(--shade-500)" }}
-        >
-          {tags.map((tag, index) => (
-            <li key={tag} className="flex items-center gap-1 text-xs">
-              {index !== 0 && <span className="text-xs">&#x2022;</span>}
+        <ul className="mt-5 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li key={tag}>
               {TAG_LINKS[tag] ? (
                 <a
                   href={TAG_LINKS[tag]}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-semibold hover:underline hover:text-[var(--shade-600)] transition-colors"
+                  className="inline-flex min-h-8 items-center rounded-[8px] border border-[var(--border-color)] px-2.5 text-xs font-bold uppercase tracking-[0.08em] text-[var(--text-muted)] transition-colors hover:border-[var(--accent-color)] hover:text-[var(--text-color)]"
                 >
                   {tag}
                 </a>
               ) : (
-                tag
+                <span className="inline-flex min-h-8 items-center rounded-[8px] border border-[var(--border-color)] px-2.5 text-xs font-bold uppercase tracking-[0.08em] text-[var(--text-muted)]">
+                  {tag}
+                </span>
               )}
             </li>
           ))}
         </ul>
 
-        {/* Buttons */}
         {(codeUrl || liveUrl) && (
-          <div className="mt-6 flex flex-wrap gap-4">
+          <div className="mt-auto flex flex-wrap gap-3 pt-6">
             {codeUrl && (
               <a
                 href={codeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 btn"
+                className="btn inline-flex items-center gap-2"
               >
-                <Github size={16} />
+                <Github aria-hidden="true" size={16} />
                 Code
               </a>
             )}
@@ -106,15 +93,15 @@ export default function WorkItem({
                 href={liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 btn"
+                className="btn inline-flex items-center gap-2"
               >
-                <ExternalLink size={16} />
-                View Live
+                <ExternalLink aria-hidden="true" size={16} />
+                Live
               </a>
             )}
           </div>
         )}
       </div>
-    </motion.div>
+    </motion.article>
   );
 }

@@ -1,8 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import { Sun, Moon, Equal, X } from "lucide-react";
+import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Container } from "./Container";
@@ -55,60 +55,37 @@ const getLinkHash = (href: string) => {
 
 const NavLink = ({ href, children, isActive }: NavLinkProps) => {
   return (
-    <a
+    <Link
       href={href}
-      className={`relative text-sm uppercase tracking-wide transition-colors hover:text-[var(--shade-500)] group ${
-        isActive ? "text-[var(--shade-500)] font-medium" : ""
+      className={`relative inline-flex min-h-11 items-center text-sm font-bold uppercase tracking-[0.08em] transition-colors hover:text-[var(--accent-color)] ${
+        isActive ? "text-[var(--accent-color)]" : "text-[var(--text-muted)]"
       }`}
     >
       {children}
-      {/* Growing underline */}
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--shade-500)] transition-all duration-300 ease-out group-hover:w-full" />
-    </a>
+      <span
+        className={`absolute bottom-1 left-0 h-0.5 bg-[var(--accent-color)] transition-all duration-200 ${
+          isActive ? "w-full" : "w-0"
+        }`}
+      />
+    </Link>
   );
 };
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const [isVisible, setIsVisible] = useState(true);
+  const { resolvedTheme, setTheme } = useTheme();
   const [activeHash, setActiveHash] = useState("");
-  const [isMobile, setIsMobile] = useState(false);
-  const previousScrollY = useRef(0);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
-  // Check if we're on the home page
-  const isHomePage = pathname === "/";
-
-  // Update screen size
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    handleResize(); // Run on mount
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    setMounted(true);
   }, []);
 
-  // Scroll direction detection (disabled on home page)
-  const handleScroll = useCallback(() => {
-    if (isHomePage) return;
-    const currentScrollY = window.scrollY;
-    setIsVisible(currentScrollY < previousScrollY.current || currentScrollY < 10);
-    previousScrollY.current = currentScrollY;
-  }, [isHomePage]);
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
-
-  // Keep the active nav state aligned with the current section hash.
-  useEffect(() => {
-    if (isHomePage) return;
     const updateActiveHash = () => {
-      if (pathname === "/main") {
-        setActiveHash(window.location.hash || "#intro");
+      if (pathname === "/" || pathname === "/main") {
+        setActiveHash(window.location.hash || "#home");
         return;
       }
 
@@ -118,42 +95,34 @@ export default function Navbar() {
     updateActiveHash();
     window.addEventListener("hashchange", updateActiveHash);
     return () => window.removeEventListener("hashchange", updateActiveHash);
-  }, [isHomePage, pathname]);
+  }, [pathname]);
 
   const toggleTheme = useCallback(() => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  }, [theme, setTheme]);
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+  }, [resolvedTheme, setTheme]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
     <motion.header
       initial={{ y: 0 }}
-      animate={{ y: isHomePage ? 0 : isVisible ? 0 : "-100%" }}
-      transition={{ duration: 0.3 }}
-      className={`fixed top-0 left-0 w-full z-50 ${
-        isHomePage ? "bg-transparent border-none" : ""
-      } ${isHomePage ? "md:pr-4 md:pb-0.5" : ""}`}
-      style={{
-        backgroundColor: isHomePage ? "transparent" : "var(--background-color)",
-        height: "var(--navbar-height)",
-        color: "var(--text-color)",
-        borderBottom: isHomePage ? "none" : `2px solid var(--shade-100)`,
-      }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.2 }}
+      className="fixed left-0 top-0 z-50 w-full border-b border-[var(--border-color)] backdrop-blur-xl"
+      style={{ height: "var(--navbar-height)" }}
     >
       <Container className="h-full">
         <div className="flex justify-between items-center h-full">
-          {/* Logo - hidden on home page */}
-          <Link
-            href="/"
-            className={isHomePage ? "opacity-0 pointer-events-none" : ""}
-            aria-hidden={isHomePage}
-          >
+          <Link href="/" aria-label="Jonah Wambua home">
             <div className="flex justify-start">
               <Image
                 src="/assets/images/jonahwambua.svg"
-                alt="Logo"
+                alt="Jonah Wambua"
                 width={500}
                 height={300}
-                className="h-4 sm:h-4 md:h-5 logo object-left"
+                className="h-4 w-auto logo object-left md:h-5"
                 style={{
                   objectPosition: "left",
                   width: "auto",
@@ -163,13 +132,7 @@ export default function Navbar() {
           </Link>
 
           <div className="flex gap-8 items-center">
-            {/* Desktop Navigation - hidden on home page */}
-            <nav
-              className={`hidden md:flex gap-8 ${
-                isHomePage ? "opacity-0 pointer-events-none" : ""
-              }`}
-              aria-hidden={isHomePage}
-            >
+            <nav className="hidden md:flex gap-7" aria-label="Primary">
               {NAV_LINKS.map((link) => (
                 <NavLink
                   key={link.href}
@@ -182,44 +145,46 @@ export default function Navbar() {
             </nav>
 
             <div className="flex items-center gap-2">
-              {/* Mobile Menu Toggle - Hidden on home page */}
               <button
                 onClick={() => setIsOpen((current) => !current)}
-                className={`md:hidden hover:text-[var(--shade-500)] cursor-pointer ${
-                  isHomePage ? "opacity-0 pointer-events-none" : ""
-                }`}
+                className="inline-flex size-11 items-center justify-center rounded-[8px] text-[var(--text-muted)] transition-colors hover:bg-[var(--surface-muted)] hover:text-[var(--text-color)] md:hidden"
                 aria-label="Toggle menu"
                 aria-expanded={isOpen}
                 aria-controls="mobile-menu"
-                aria-hidden={isHomePage}
               >
                 {isOpen ? (
-                  <X size={isMobile ? 30 : 24} strokeWidth={1.5} />
+                  <X size={22} strokeWidth={1.8} />
                 ) : (
-                  <Equal size={isMobile ? 30 : 24} strokeWidth={1.5} />
+                  <Menu size={22} strokeWidth={1.8} />
                 )}
               </button>
 
-              {/* Theme Toggle - Always visible and clickable */}
               <button
                 onClick={toggleTheme}
-                aria-label="Toggle Theme"
-                className="hover:text-[var(--shade-500)] cursor-pointer"
+                aria-label="Toggle theme"
+                className="inline-flex size-11 items-center justify-center rounded-[8px] text-[var(--text-muted)] transition-colors hover:bg-[var(--surface-muted)] hover:text-[var(--text-color)]"
               >
-                {theme === "dark" ? (
-                  <Sun size={isMobile ? 28 : 24} strokeWidth={1.5} />
+                {mounted && resolvedTheme === "dark" ? (
+                  <Sun size={20} strokeWidth={1.8} />
                 ) : (
-                  <Moon size={isMobile ? 28 : 24} strokeWidth={1.5} />
+                  <Moon size={20} strokeWidth={1.8} />
                 )}
               </button>
+
+              <Link
+                href="/#contact"
+                className="btn-primary hidden items-center gap-2 md:inline-flex"
+              >
+                Start a project
+                <ArrowUpRight aria-hidden="true" size={16} />
+              </Link>
             </div>
           </div>
         </div>
       </Container>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
-        {isOpen && !isHomePage && (
+        {isOpen && (
           <motion.div
             id="mobile-menu"
             key="mobile-menu"
@@ -227,29 +192,45 @@ export default function Navbar() {
             animate="animate"
             exit="exit"
             variants={MENU_VARIANTS}
-            className="md:hidden pt-16 pb-16 m-5 rounded-xl flex flex-col gap-4 items-center"
+            className="mx-[5vw] mt-3 flex flex-col gap-2 rounded-[8px] border border-[var(--border-color)] p-4 shadow-2xl md:hidden"
             style={{
-              backgroundColor: "var(--background-color-transparent)",
+              backgroundColor: "var(--surface-color)",
               color: "var(--text-color)",
             }}
           >
             {NAV_LINKS.map((link) => (
-              <motion.a
+              <motion.div
                 key={link.href}
                 variants={MENU_ITEM_VARIANTS}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`text-xl tracking-wide uppercase hover:text-[var(--shade-500)] ${
-                  activeHash === getLinkHash(link.href)
-                    ? "text-[var(--shade-500)] font-medium"
-                    : ""
-                }`}
               >
-                {link.label}
-              </motion.a>
+                <Link
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`flex min-h-12 items-center rounded-[8px] px-3 text-lg font-bold uppercase tracking-[0.08em] hover:bg-[var(--surface-muted)] hover:text-[var(--accent-color)] ${
+                    activeHash === getLinkHash(link.href)
+                      ? "text-[var(--accent-color)]"
+                      : ""
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
             ))}
 
-            <motion.div variants={MENU_ITEM_VARIANTS} className="mt-10">
+            <motion.div
+              variants={MENU_ITEM_VARIANTS}
+            >
+              <Link
+                href="/#contact"
+                onClick={() => setIsOpen(false)}
+                className="btn-primary mt-4 inline-flex items-center gap-2"
+              >
+                Start a project
+                <ArrowUpRight aria-hidden="true" size={16} />
+              </Link>
+            </motion.div>
+
+            <motion.div variants={MENU_ITEM_VARIANTS} className="mt-4">
               <SocialLinks />
             </motion.div>
           </motion.div>

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { WORK_ITEMS } from "@/data/work-items";
@@ -9,55 +12,50 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="py-[10%] md:py-[5%]"
-      style={{ backgroundColor: "var(--shade-100)" }}
+      className="border-y border-[var(--border-color)] bg-[var(--surface-muted)] py-20 md:py-28"
     >
       <Container>
-        <div className="mb-6">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.8 }}
-          >
-            Work
-          </motion.h2>
+        <div className="mb-10 grid gap-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div>
+            <p className="eyebrow">Selected work</p>
+            <motion.h2
+              className="mt-4"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.32, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.7 }}
+            >
+              Interfaces, CMS builds, and product experiments.
+            </motion.h2>
+          </div>
 
           <motion.p
-            className="text-xl sm:text-2xl"
-            initial={{ clipPath: "inset(0 100% 0 0)" }}
-            whileInView={{ clipPath: "inset(0 0% 0 0)" }}
-            transition={{
-              duration: 1,
-              ease: "easeInOut",
-              delay: 0.5,
-            }}
+            className="section-copy lg:justify-self-end"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.32, ease: "easeOut", delay: 0.05 }}
+            viewport={{ once: true, amount: 0.7 }}
           >
-            I specialize in contract-based work, with occasional freelance
-            projects or personal endeavors driven by passion. Below are some of
-            my recent works:
+            A mix of client work, contract builds, and personal products across
+            modern JavaScript, Rails, WordPress, and brand-led design systems.
           </motion.p>
         </div>
 
-        {WORK_ITEMS.map((item, index) => (
-          <div
-            key={item.title}
-            className={
-              index === WORK_ITEMS.length - 1 ? "pb-0" : "pb-[10%] md:pb-[5%]"
-            }
-          >
-            <WorkItem {...item} />
-          </div>
-        ))}
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {WORK_ITEMS.map((item, index) => (
+            <WorkItem key={item.title} {...item} index={index} />
+          ))}
+        </div>
 
-        <div className="pt-16 pb-4 scroll-in">
+        <div className="mt-10">
           <Link
             href="https://github.com/DJ-MrJay?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-rounded inline-flex items-center"
+            className="btn-primary inline-flex items-center gap-2"
           >
-            View More Projects
+            View more projects
+            <ArrowUpRight aria-hidden="true" size={16} />
           </Link>
         </div>
       </Container>
