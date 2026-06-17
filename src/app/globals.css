@@ -228,3 +228,7 @@ h6 {
 .scroller-container:hover .scroller2 {
   animation-play-state: paused;
 }
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
