@@ -207,6 +207,11 @@ export async function POST(request: Request) {
 
     const { fullname, email, message } = contactMessage;
     const safeName = fullname.replace(/[\r\n]/g, " ");
+    // Sanitize the sender email to avoid header injection and malformed headers
+    const safeEmail = email.replace(/[\r\n<>\"]+/g, "").trim();
+    const replyToOption = EMAIL_PATTERN.test(safeEmail)
+      ? { name: safeName, address: safeEmail }
+      : undefined;
     const text = [
       `Name: ${fullname}`,
       `Email: ${email}`,
@@ -218,10 +223,8 @@ export async function POST(request: Request) {
     await getTransporter().sendMail({
       from: getContactSender(),
       to: getContactRecipient(),
-      replyTo: {
-        name: safeName,
-        address: email,
-      },
+      // Use the sanitized user email as Reply-To when valid
+      ...(replyToOption ? { replyTo: replyToOption } : {}),
       subject: `Portfolio contact form message from ${safeName}`,
       text,
       html: `
