@@ -37,23 +37,23 @@ export default function WorkItem({
 
   return (
     <motion.article
-      className="group flex h-full flex-col overflow-hidden rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] shadow-[0_16px_42px_var(--shadow-color)] transition duration-200 hover:-translate-y-1 hover:border-[var(--accent-color)] motion-reduce:hover:translate-y-0"
+      className="group yt-card relative overflow-visible rounded-[8px] flex h-full flex-col"
       {...revealMotion(Boolean(shouldReduceMotion), (index % 2) * 0.05, 22, 0.25)}
     >
-      <div className="relative aspect-[16/9] overflow-hidden bg-[var(--background-color)]">
+      <div className="relative aspect-[16/9] overflow-hidden z-10">
         <Image
           src={image}
           alt={`${title} project preview`}
           fill
           sizes="(min-width: 1024px) 45vw, (min-width: 768px) 47vw, 92vw"
-          className="object-cover object-top transition duration-300 group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          className="object-cover object-top rounded-[8px]"
         />
         <div className="absolute left-3 top-3 rounded-[8px] border border-white/40 bg-black/65 px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-white backdrop-blur-sm">
           {category}
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col p-5 md:p-6">
+      <div className="flex flex-1 flex-col mt-5 md:mt-6 relative z-20">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <h3 className="text-2xl">{title}</h3>
           <span className="w-fit rounded-full border border-[var(--border-color)] px-3 py-1 text-xs font-bold uppercase tracking-[0.08em] text-[var(--text-muted)]">
@@ -62,7 +62,7 @@ export default function WorkItem({
         </div>
 
         <div className="mt-5 grid gap-3 text-sm sm:grid-cols-2">
-          <div className="rounded-[8px] bg-[var(--surface-muted)] p-3">
+          <div className="rounded-[8px] bg-[var(--background-color)] p-3">
             <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--text-muted)]">
               Role
             </p>
@@ -70,7 +70,7 @@ export default function WorkItem({
               {role}
             </p>
           </div>
-          <div className="rounded-[8px] bg-[var(--surface-muted)] p-3">
+          <div className="rounded-[8px] bg-[var(--background-color)] p-3">
             <p className="text-xs font-bold uppercase tracking-[0.08em] text-[var(--text-muted)]">
               Outcome
             </p>
