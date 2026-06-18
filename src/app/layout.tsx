@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
+import Script from 'next/script';
 
 const roobert = localFont({
   src: "fonts/Roobert-Bold.otf",
@@ -34,6 +35,12 @@ export default function RootLayout({
     >
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+            <Script
+              src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+              strategy="afterInteractive"
+            />
+          )}
           {children}
         </ThemeProvider>
       </body>

@@ -15,7 +15,7 @@ type FormValues = {
   message: string;
 };
 
-const CONTACT_FORM_ENDPOINT = "https://formcarry.com/s/MTj757WTopu";
+const CONTACT_API_ENDPOINT = "/api/contact";
 
 const PROJECT_FITS = [
   "Responsive portfolio and business websites",
@@ -46,13 +46,30 @@ export default function ContactSection() {
     setStatus("idle");
 
     try {
-      const res = await fetch(CONTACT_FORM_ENDPOINT, {
+      // optional reCAPTCHA token (v3) — only if grecaptcha is loaded and a site key is present
+      let token: string | undefined;
+      try {
+        if (typeof window !== "undefined" && (window as any).grecaptcha && process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY) {
+          token = await new Promise<string>((resolve) => {
+            (window as any).grecaptcha.ready(() => {
+              (window as any).grecaptcha
+                .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: "contact" })
+                .then((t: string) => resolve(t))
+                .catch(() => resolve(undefined as unknown as string));
+            });
+          });
+        }
+      } catch (e) {
+        // ignore recaptcha errors and proceed
+      }
+
+      const res = await fetch(CONTACT_API_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, token }),
       });
 
       if (res.ok) {
