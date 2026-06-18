@@ -6,7 +6,7 @@
   --font-primary:
     var(--font-space-grotesk), "Inter", "Aptos", "Segoe UI", system-ui,
     sans-serif;
-  --font-heading: "Walsheim Bold", sans-serif;
+  --font-heading: "Roobert Bold", sans-serif;
 
   --color-primary: #18181b;
   --color-on-primary: #ffffff;
@@ -24,7 +24,7 @@
   --surface-color: #ffffff;
   --surface-muted: var(--color-muted);
   --text-color: var(--color-foreground);
-  --text-muted: #4b5563;
+  --text-muted: #313842;
 
   --shade-100: var(--color-border);
   --shade-300: #71717a;
@@ -44,6 +44,12 @@
   --error-color: #b42318;
   --shadow-color: rgba(17, 17, 19, 0.08);
   --image-filter: none;
+  --dot-spacing: 20px;
+  --dot-radius: 3px;
+  --dot-color: rgba(17,24,39,0.06);
+  --dot-gradient-from: rgba(17,24,39,0.06);
+  --dot-gradient-to: rgba(17,24,39,0.03);
+  --dot-glow-color: rgba(17,24,39,0.06);
   color-scheme: light;
 }
 
@@ -83,6 +89,12 @@
   --error-color: #fca5a5;
   --shadow-color: rgba(0, 0, 0, 0.34);
   --image-filter: saturate(0.78) contrast(1.05);
+  --dot-spacing: 20px;
+  --dot-radius: 3px;
+  --dot-color: rgba(255,255,255,0.04);
+  --dot-gradient-from: rgba(255,255,255,0.04);
+  --dot-gradient-to: rgba(255,255,255,0.02);
+  --dot-glow-color: rgba(255,255,255,0.06);
   color-scheme: dark;
 }
 
@@ -253,9 +265,9 @@ h6 {
 .btn,
 .btn-rounded,
 .btn-primary {
-  min-height: 44px;
+  height: 40px;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: transparent;
   color: var(--text-color);
   transition:

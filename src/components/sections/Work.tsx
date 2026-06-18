@@ -25,8 +25,7 @@ export default function Work() {
               className="mt-4 max-w-2xl"
               {...revealMotion(Boolean(shouldReduceMotion), 0, 18, 0.7)}
             >
-              Case studies across interfaces, CMS launches, and full-stack
-              product experiments.
+              UI, CMS, and full-stack product work.
             </motion.h2>
           </div>
 
@@ -40,7 +39,7 @@ export default function Work() {
           </motion.p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
           {WORK_ITEMS.map((item, index) => (
             <WorkItem key={item.title} {...item} index={index} />
           ))}

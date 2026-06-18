@@ -71,7 +71,7 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Mix Streamer",
-    category: "Product experiment",
+    category: "Entertainment app",
     role: "Product UI, Next.js build, media UX",
     outcome: "A mobile-first streaming interface with search and persistent playback.",
     description:
@@ -148,7 +148,7 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "Phil Logistics",
-    category: "Client website",
+    category: "Logistics website",
     role: "WordPress design and deployment",
     outcome: "A three-day CMS launch for a logistics and customs brokerage firm.",
     description: (
@@ -191,7 +191,7 @@ export const WORK_ITEMS: WorkItemData[] = [
   },
   {
     title: "SJZ Flowers",
-    category: "Export business site",
+    category: "Horticulture site",
     role: "WordPress UX and visual direction",
     outcome: "A responsive CMS site for floral products, export services, and sourcing.",
     description: (

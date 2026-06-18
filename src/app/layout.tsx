@@ -4,8 +4,8 @@ import { Space_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 
-const walsheim = localFont({
-  src: "fonts/gt-walsheim-bold.woff",
+const roobert = localFont({
+  src: "fonts/Roobert-Bold.otf",
   variable: "--font-heading",
 });
 
@@ -30,7 +30,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${walsheim.variable} ${spaceGrotesk.variable}`}
+      className={`${roobert.variable} ${spaceGrotesk.variable}`}
     >
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

@@ -31,7 +31,7 @@ export default function SocialLinks() {
           rel="noopener noreferrer"
           title={link.title}
           aria-label={link.title}
-          className="inline-flex size-11 items-center justify-center rounded-[8px] border border-[var(--border-color)] text-[var(--text-muted)] transition-colors duration-200 hover:border-[var(--accent-color)] hover:bg-[var(--surface-muted)] hover:text-[var(--text-color)]"
+          className="inline-flex size-8 items-center justify-center rounded-[4px] border border-[var(--border-color)] text-[var(--text-muted)] transition-colors duration-200 hover:border-[var(--accent-color)] hover:bg-[var(--surface-muted)] hover:text-[var(--text-color)]"
         >
           <svg
             aria-hidden="true"

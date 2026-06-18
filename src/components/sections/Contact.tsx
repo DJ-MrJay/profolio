@@ -108,15 +108,12 @@ export default function ContactSection() {
             </motion.ul>
 
             <div className="mt-8 grid gap-3 text-sm text-[var(--text-muted)]">
-              <a
-                href="mailto:contact@mrjay.co.ke"
-                className="inline-flex w-fit items-center gap-3 rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] px-4 py-3 transition-colors hover:border-[var(--accent-color)] hover:text-[var(--text-color)]"
-              >
-                <Mail aria-hidden="true" size={18} className="text-[var(--accent-color)]" />
-                contact@mrjay.co.ke
-              </a>
-              <div className="inline-flex w-fit items-center gap-3 rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] px-4 py-3">
-                <MapPin aria-hidden="true" size={18} className="text-[var(--accent-color)]" />
+              <div className="inline-flex w-fit items-center gap-3 rounded-[4px] border border-[var(--border-color)] bg-[var(--surface-color)] px-4 py-3">
+                <MapPin
+                  aria-hidden="true"
+                  size={18}
+                  className="text-[var(--accent-color)]"
+                />
                 Nairobi, Kenya / Remote-friendly
               </div>
             </div>
@@ -138,7 +135,9 @@ export default function ContactSection() {
                   type="text"
                   autoComplete="name"
                   aria-invalid={Boolean(errors.fullname)}
-                  aria-describedby={errors.fullname ? "fullname-error" : undefined}
+                  aria-describedby={
+                    errors.fullname ? "fullname-error" : undefined
+                  }
                   className="mt-2 min-h-12 border-[var(--border-color)] bg-[var(--background-color)] px-4 text-base focus-visible:border-[var(--focus-ring)] focus-visible:ring-[var(--focus-ring)]"
                   {...register("fullname", {
                     required: "Name is required.",
@@ -153,7 +152,10 @@ export default function ContactSection() {
                   })}
                 />
                 {errors.fullname && (
-                  <p id="fullname-error" className="mt-2 text-sm text-[var(--error-color)]">
+                  <p
+                    id="fullname-error"
+                    className="mt-2 text-sm text-[var(--error-color)]"
+                  >
                     {errors.fullname.message}
                   </p>
                 )}
@@ -179,7 +181,10 @@ export default function ContactSection() {
                   })}
                 />
                 {errors.email && (
-                  <p id="email-error" className="mt-2 text-sm text-[var(--error-color)]">
+                  <p
+                    id="email-error"
+                    className="mt-2 text-sm text-[var(--error-color)]"
+                  >
                     {errors.email.message}
                   </p>
                 )}
@@ -205,7 +210,10 @@ export default function ContactSection() {
                 })}
               />
               {errors.message && (
-                <p id="message-error" className="mt-2 text-sm text-[var(--error-color)]">
+                <p
+                  id="message-error"
+                  className="mt-2 text-sm text-[var(--error-color)]"
+                >
                   {errors.message.message}
                 </p>
               )}
@@ -226,7 +234,11 @@ export default function ContactSection() {
               </p>
             </div>
 
-            <div className="mt-5 min-h-6 text-sm" role="status" aria-live="polite">
+            <div
+              className="mt-5 min-h-6 text-sm"
+              role="status"
+              aria-live="polite"
+            >
               {status === "success" && (
                 <p className="text-[var(--success-color)]">
                   Thank you. Your message has been sent.

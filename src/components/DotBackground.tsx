@@ -10,12 +10,14 @@ export function DotBackground({ className }: DotBackgroundProps) {
       <div
         className={cn(
           "absolute inset-0 -z-10",
-          "[background-size:20px_20px]",
-          "[background-image:radial-gradient(var(--grey-color)_1px,transparent_1px)]",
+          "[background-size:var(--dot-spacing)_var(--dot-spacing)]",
+          "[background-image:radial-gradient(var(--dot-color)_var(--dot-radius),transparent var(--dot-radius))]",
           className
         )}
       />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[var(--background-color)] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,var(--background-color))] -z-10" />
+      <div
+        className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[var(--background-color)] [mask-image:radial-gradient(ellipse_at_center,transparent_20%,var(--background-color))] -z-10"
+      />
     </>
   );
 }

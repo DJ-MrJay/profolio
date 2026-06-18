@@ -5,6 +5,8 @@ import Image from "next/image";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Container } from "../Container";
+import { DotBackground } from "../DotBackground";
+import DotField from "../DotField";
 import { entranceMotion } from "@/lib/motion";
 
 const HERO_TAGS = [
@@ -30,8 +32,14 @@ export default function Hero() {
       className="relative isolate min-h-[82dvh] overflow-hidden border-b border-[var(--border-color)] pt-[var(--navbar-height)]"
     >
       <div className="absolute inset-0 -z-20 bg-[var(--background-color)]" />
-      <div className="absolute inset-y-0 right-0 -z-10 hidden w-[58%] bg-[var(--surface-muted)] lg:block" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,var(--background-color)_0%,rgba(250,250,250,0.96)_48%,rgba(250,250,250,0.48)_76%,rgba(250,250,250,0.08)_100%)] dark:bg-[linear-gradient(90deg,var(--background-color)_0%,rgba(11,13,16,0.96)_48%,rgba(11,13,16,0.68)_76%,rgba(11,13,16,0.18)_100%)]" />
+      {shouldReduceMotion ? (
+        <DotBackground />
+      ) : (
+        <div className="absolute inset-0 -z-10">
+          <DotField />
+        </div>
+      )}
+      
       <motion.div
         className="absolute bottom-0 right-[-8%] top-[9%] -z-10 hidden w-[62%] lg:block"
         style={shouldReduceMotion ? undefined : { y: portraitY }}
@@ -51,28 +59,28 @@ export default function Hero() {
       <Container className="flex min-h-[calc(82dvh-var(--navbar-height))] flex-col justify-center py-10 md:py-12">
         <div className="max-w-4xl">
           <motion.p
-            className="chapter-kicker"
+            className="text-transform uppercase text-sm font-medium tracking-wide text-[var(--accent-color)]"
             {...entranceMotion(Boolean(shouldReduceMotion), 0, 12)}
           >
-            Jonah Wambua / Nairobi
+            Jonah Wambua / Nairobi, Kenya
           </motion.p>
 
-          <div className="mt-5 space-y-5">
-            <h1 className="max-w-4xl text-balance">
-              <span className="block overflow-hidden">
+          <div className="mt-5 space-y-8">
+            <h1 className="max-w-3xl text-balance">
+              <span className="block">
                 <motion.span
                   className="block"
                   {...entranceMotion(Boolean(shouldReduceMotion), 0.06, 54)}
                 >
-                  Design-led full-stack developer
+                  Design-led developer.
                 </motion.span>
               </span>
-              <span className="block overflow-hidden text-[var(--text-muted)]">
+              <span className="block text-[var(--text-muted)]">
                 <motion.span
                   className="block"
                   {...entranceMotion(Boolean(shouldReduceMotion), 0.12, 54)}
                 >
-                  building clear, polished digital products.
+                  Polished digital products.
                 </motion.span>
               </span>
             </h1>

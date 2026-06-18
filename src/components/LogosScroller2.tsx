@@ -19,9 +19,9 @@ export function LogosScroller() {
 
   return (
     <div className="scroller-container relative flex max-w-full min-w-0 overflow-hidden">
-      <div className="pointer-events-none absolute left-0 top-0 h-full w-16 z-20 bg-gradient-to-r from-[var(--color-background)] to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 h-full w-16 z-20 bg-gradient-to-r from-[var(--surface-color)] to-transparent" />
 
-      <div className="pointer-events-none absolute right-0 top-0 h-full w-16 z-20 bg-gradient-to-l from-[var(--color-background)] to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 h-full w-16 z-20 bg-gradient-to-l from-[var(--surface-color)] to-transparent" />
 
       <div className="scroller flex w-max items-center py-6">
         {[0, 1].map((copy) => (

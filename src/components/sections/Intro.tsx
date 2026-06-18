@@ -55,8 +55,8 @@ export default function Intro() {
             >
               My path started in systems and client operations before moving
               deeper into product interfaces, full-stack development, and visual
-              identity. That background keeps my work grounded in what teams
-              can actually ship, maintain, and explain.
+              identity. That background keeps my work grounded in what teams can
+              actually ship, maintain, and explain.
             </motion.p>
           </div>
 
@@ -102,7 +102,7 @@ export default function Intro() {
                       Boolean(shouldReduceMotion),
                       index * 0.04,
                       18,
-                      0.6
+                      0.6,
                     )}
                   >
                     <div className="mb-5 inline-flex size-11 items-center justify-center rounded-[8px] bg-[var(--surface-muted)] text-[var(--accent-color)] transition-colors group-hover:bg-[var(--accent-color)] group-hover:text-[var(--accent-foreground)]">
@@ -121,20 +121,19 @@ export default function Intro() {
               className="flex flex-col gap-5 border-t border-[var(--border-color)] pt-6 sm:flex-row sm:items-center sm:justify-between"
               {...revealMotion(Boolean(shouldReduceMotion), 0.04, 14, 0.6)}
             >
-              <p className="max-w-xl text-sm text-[var(--text-muted)]">
-                Tools and frameworks I use regularly across client work,
-                product experiments, and content-driven sites.
-              </p>
-              <Link href="/about" className="btn-rounded inline-flex items-center gap-2">
+              <Link
+                href="/about"
+                className="btn-rounded inline-flex items-center gap-2"
+              >
                 Read the details
                 <ArrowRight aria-hidden="true" size={16} />
               </Link>
             </motion.div>
-
-            <div className="min-w-0 rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)]">
-              <LogosScroller />
-            </div>
           </div>
+        </div>
+
+        <div className="mt-12">
+          <LogosScroller />
         </div>
       </Container>
     </section>

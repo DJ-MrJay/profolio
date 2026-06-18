@@ -12,7 +12,7 @@ import {
 import Navbar from "../../components/Header";
 import Footer from "../../components/Footer";
 import { Container } from "../../components/Container";
-import { LogosScroller } from "../../components/LogosScroller";
+import { LogosScroller } from "../../components/LogosScroller2";
 
 const EXPERIENCE = [
   {
@@ -167,7 +167,7 @@ export default function AboutPage() {
             <div className="mt-14 grid gap-10 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:items-center">
               <div>
                 <p className="eyebrow">Skills</p>
-                <h2 className="mt-4">Tools I reach for often.</h2>
+                <h2 className="mt-4">Tools I utilize often.</h2>
               </div>
               <div className="overflow-hidden rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)]">
                 <LogosScroller />
