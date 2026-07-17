@@ -37,7 +37,7 @@ export default function ArticlesSection() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
             {ARTICLES.map((article, index) => (
               <motion.a
                 key={article.href}
@@ -47,18 +47,18 @@ export default function ArticlesSection() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05, duration: 0.9 }}
-                className="flex flex-col h-full article group shadow transition-shadow duration-500 hover:shadow-md focus-within:shadow-md"
+                className="article-card group relative flex h-full flex-col overflow-visible rounded-[8px]"
               >
-                <div className="overflow-hidden">
+                <div className="overflow-hidden rounded-[8px]">
                   <Image
                     src={article.img}
                     alt={article.title}
                     width={400}
                     height={200}
-                    className="w-full h-full object-cover opacity-80 grayscale contrast-75 transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0 group-hover:contrast-100"
+                    className="article-card-image h-full w-full object-cover"
                   />
                 </div>
-                <div className="p-4 flex flex-col flex-grow">
+                <div className="my-4 flex flex-col flex-grow">
                   <div className="text-sm uppercase text-gray-500">
                     MEDIUM <i className="bi bi-medium"></i>
                   </div>
