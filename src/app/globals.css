@@ -446,3 +446,7 @@ h6 {
     transform: none;
   }
 }
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}

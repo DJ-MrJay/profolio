@@ -72,7 +72,7 @@ export default function Intro() {
             </motion.p>
 
             <motion.div
-              className="grid gap-3 rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] p-5 shadow-[0_14px_40px_var(--shadow-color)] sm:grid-cols-3"
+              className="grid gap-3 rounded-[8px] bg-[var(--surface-color)] p-5 shadow-[0_14px_40px_var(--shadow-color)] sm:grid-cols-3"
               {...revealMotion(Boolean(shouldReduceMotion), 0.1, 18, 0.5)}
             >
               {VALUES.map((value) => (
@@ -97,7 +97,7 @@ export default function Intro() {
                 return (
                   <motion.article
                     key={item.title}
-                    className="group rounded-[8px] border border-[var(--border-color)] bg-[var(--surface-color)] p-5 shadow-[0_14px_40px_var(--shadow-color)] transition duration-200 hover:-translate-y-1 hover:border-[var(--accent-color)] motion-reduce:hover:translate-y-0"
+                    className="group rounded-[8px]  bg-[var(--surface-color)] p-5 shadow-[0_14px_40px_var(--shadow-color)] transition duration-200  hover:border-[var(--accent-color)] motion-reduce:hover:translate-y-0"
                     {...revealMotion(
                       Boolean(shouldReduceMotion),
                       index * 0.04,

@@ -1,11 +1,9 @@
 export const ARTICLES = [
   {
-    href: "https://medium.com/@djmrjay/css3-unleashing-the-magic-in-web-and-app-development-cf7848792987",
-    img: "/assets/images/css3-cover.jpg",
-    title: "CSS3: Unleashing the Magic!",
-    description: `In the ever-evolving world of web and app development,
-    CSS3 stands as a true magician, conjuring up stunning visuals,
-    enhancing user experiences, and bringing creativity to life.`,
+    href: "https://medium.com/@djmrjay/deploying-a-next-js-standalone-application-to-directadmin-cpanel-using-wsl-aa30dd2c1452",
+    img: "/assets/images/nextjs-directadmin.jpg",
+    title: "Deploying a Next.js App to cPanel",
+    description: `A simple approach to deploying a Next.js app to DirectAdmin/cPanel. This guide walks you through the entire deployment process, from building your application locally to publishing it on your server.`,
   },
   {
     href: "https://medium.com/@djmrjay/designing-success-the-power-of-aesthetics-and-captivating-ui-ux-in-web-development-eb6fd3b90ee2",
