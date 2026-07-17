@@ -25,9 +25,10 @@ export default function HomePage() {
         {/* Background Image Layer */}
         <div
           id="home"
-          className="absolute inset-0 pointer-events-none hidden lg:block bg-[url('/assets/images/mrjay-on-chair.png')] bg-no-repeat bg-right-bottom bg-contain z-10"
+          className="absolute inset-0 pointer-events-none hidden lg:block bg-[url('/assets/images/mrjay-on-chair.png')] bg-no-repeat bg-contain z-10"
           style={{
             filter: "var(--image-filter)",
+            backgroundPosition: "calc(100% + 10%) bottom",
           }}
         />
 
