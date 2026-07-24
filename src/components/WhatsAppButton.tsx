@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const WHATSAPP_LINK = "https://wa.me/254735990330?text=Hi.%20How%20can%20I%20help%20you?%20Let's%20talk!";
+const WHATSAPP_LINK = "https://wa.me/254735990330?text=Hi%20Jonah.%20I'm%20inquiring%20about%20your%20rates%20and%20services.%20Kindly%20get%20back%20to%20me.";
 const SCROLL_THRESHOLD = 200;
 
 export default function WhatsAppButton() {
