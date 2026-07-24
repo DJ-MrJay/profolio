@@ -6,7 +6,7 @@ This is a modern portfolio website, showcasing my skills, projects, and professi
 
 ## 🔗 Live Demo
 
-[Visit the live site](https://jonah-profolio.vercel.app/)  
+[Visit the live site](https://mrjay.co.ke/)  
 
 ---
 
@@ -87,16 +87,16 @@ Open http://localhost:3000 to view the project in your browser.
 <div align="center">
   <table>
     <tr>
-      <td style="padding: 10px;"><img src="/public/assets/images/portfolio-shot-2.png" alt="Homepage"/></td>
-      <td style="padding: 10px;"><img src="/public/screenshots/Screenshot2.png" alt="About Page"/></td>
+      <td style="padding: 10px;"><img src="/public/assets/images/landing-page.jpg" alt="Homepage"/></td>
+      <td style="padding: 10px;"><img src="/public/screenshots/about-page.jpg" alt="About Page"/></td>
     </tr>
     <tr>
-      <td style="padding: 10px;"><img src="/public/screenshots/Screenshot3.png" alt="Experience & Skills Section"/></td>
-      <td style="padding: 10px;"><img src="/public/screenshots/Screenshot4.png" alt="Articles Section"/></td>
+      <td style="padding: 10px;"><img src="/public/screenshots/skills-section.jpg" alt="Skills & Experience Section"/></td>
+      <td style="padding: 10px;"><img src="/public/screenshots/articles-section.jpg" alt="Articles Section"/></td>
     </tr>
     <tr>
-      <td style="padding: 10px;"><img src="/public/screenshots/Screenshot5.png" alt="Contact Section"/></td>
-      <td style="padding: 10px;"><img src="/public/screenshots/Screenshot6.png" alt="Work Section"/></td>
+      <td style="padding: 10px;"><img src="/public/screenshots/contact-section.jpg" alt="Contact Section"/></td>
+      <td style="padding: 10px;"><img src="/public/screenshots/work-section.jpg" alt="Work Section"/></td>
     </tr>
   </table>
 </div>
