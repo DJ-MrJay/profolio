@@ -186,8 +186,7 @@ h6 {
   transform: scale(0.98);
   transition:
     opacity 300ms ease,
-    transform 300ms ease,
-    box-shadow 300ms ease;
+    transform 300ms ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -198,7 +197,6 @@ h6 {
   .article-card:hover::before {
     opacity: 1;
     transform: scale(1);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
   }
 
   .article-card:hover .article-card-image {
