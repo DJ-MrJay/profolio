@@ -6,7 +6,7 @@ This is a modern portfolio website, showcasing my skills, projects, and professi
 
 ## 🔗 Live Demo
 
-**Live Site:**<a href="https://mrjay.co.ke/" target="_blank" rel="noopener noreferrer">View live ↗</a>  
+**Live Site:** <a href="https://mrjay.co.ke/" target="_blank" rel="noopener noreferrer">View live ↗</a>  
 
 ---
 
