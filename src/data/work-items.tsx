@@ -70,7 +70,7 @@ export const WORK_ITEMS: WorkItemData[] = [
     image: "/assets/images/mix-streamer.jpg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
     codeUrl: "https://github.com/DJ-MrJay/mix-streamer",
-    liveUrl: "https://mix-streamer.vercel.app/",
+    liveUrl: "https://dj.mrjay.co.ke/",
   },
   {
     title: "Super Wheels Car Rentals",
