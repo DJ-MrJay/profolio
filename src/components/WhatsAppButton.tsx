@@ -7,16 +7,19 @@ import { usePathname } from "next/navigation";
 
 const WHATSAPP_LINK = "https://wa.me/254735990330?text=Hi%20Jonah.%20I'm%20inquiring%20about%20your%20rates%20and%20services.%20Kindly%20get%20back%20to%20me.";
 const SCROLL_THRESHOLD = 200;
+const FOOTER_CLEARANCE = 100;
 
 export default function WhatsAppButton() {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
   const previousScrollY = useRef(0);
   const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     if (pathname === "/") {
       setIsVisible(false);
+      setIsFooterVisible(false);
       return;
     }
 
@@ -32,6 +35,29 @@ export default function WhatsAppButton() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (pathname === "/") {
+      return;
+    }
+
+    setIsFooterVisible(false);
+
+    const footer = document.querySelector("footer");
+    if (!footer) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsFooterVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 },
+    );
+
+    observer.observe(footer);
+    return () => observer.disconnect();
   }, [pathname]);
 
   if (pathname === "/") {
@@ -53,15 +79,22 @@ export default function WhatsAppButton() {
           }
           animate={
             prefersReducedMotion
-              ? { opacity: 1 }
-              : { opacity: 1, y: 0, scale: 1 }
+              ? { opacity: 1, y: isFooterVisible ? -FOOTER_CLEARANCE : 0 }
+              : {
+                  opacity: 1,
+                  y: isFooterVisible ? -FOOTER_CLEARANCE : 0,
+                  scale: 1,
+                }
           }
           exit={
             prefersReducedMotion
               ? { opacity: 0 }
               : { opacity: 0, y: 96, scale: 0.9 }
           }
-          transition={{ duration: 0.28, ease: "easeOut" }}
+          transition={{
+            duration: prefersReducedMotion ? 0 : 0.28,
+            ease: "easeOut",
+          }}
           className="fixed bottom-5 right-5 z-[60] isolate flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg shadow-black/20 outline-none transition-transform hover:scale-105 focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--background-color)] sm:bottom-8 sm:right-8 sm:h-16 sm:w-16"
         >
           <span
